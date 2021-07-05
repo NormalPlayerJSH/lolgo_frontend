@@ -12,17 +12,15 @@ const Hello = () => {
       </div>
       <h1>electron-react-boilerplate</h1>
       <div className="Hello">
-        <a href="asdf">
-          <button
-            type="button"
-            onClick={() => ipcRenderer.send('asdf', { msg: 'asdf' })}
-          >
-            <span role="img" aria-label="books">
-              📚
-            </span>
-            Send asdf
-          </button>
-        </a>
+        <button
+          type="button"
+          onClick={() => ipcRenderer.send('asdf', { msg: 'asdf' })}
+        >
+          <span role="img" aria-label="books">
+            📚
+          </span>
+          Send asdf
+        </button>
         <a
           href="https://github.com/sponsors/electron-react-boilerplate"
           target="_blank"

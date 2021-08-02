@@ -11,10 +11,24 @@
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import path from 'path';
-import { app, BrowserWindow, shell, ipcMain } from 'electron';
+import {
+  app, BrowserWindow, shell, ipcMain,
+} from 'electron';
 import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
+import { LCUEvents } from './types/enum';
+
+const LCUConnector = require('lcu-connector');
+
+const connector = new LCUConnector();
+
+app.commandLine.appendSwitch('ignore-certificate-errors', 'true');
+
+console.log(LCUConnector, connector);
+
+let LCUData = {};
+let isLCUConnected = false;
 
 export default class AppUpdater {
   constructor() {
@@ -32,8 +46,8 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 if (
-  process.env.NODE_ENV === 'development' ||
-  process.env.DEBUG_PROD === 'true'
+  process.env.NODE_ENV === 'development'
+  || process.env.DEBUG_PROD === 'true'
 ) {
   require('electron-debug')();
 }
@@ -46,15 +60,15 @@ const installExtensions = async () => {
   return installer
     .default(
       extensions.map((name) => installer[name]),
-      forceDownload
+      forceDownload,
     )
     .catch(console.log);
 };
 
 const createWindow = async () => {
   if (
-    process.env.NODE_ENV === 'development' ||
-    process.env.DEBUG_PROD === 'true'
+    process.env.NODE_ENV === 'development'
+    || process.env.DEBUG_PROD === 'true'
   ) {
     await installExtensions();
   }
@@ -63,9 +77,7 @@ const createWindow = async () => {
     ? path.join(process.resourcesPath, 'assets')
     : path.join(__dirname, '../assets');
 
-  const getAssetPath = (...paths: string[]): string => {
-    return path.join(RESOURCES_PATH, ...paths);
-  };
+  const getAssetPath = (...paths: string[]): string => path.join(RESOURCES_PATH, ...paths);
 
   mainWindow = new BrowserWindow({
     show: false,
@@ -91,6 +103,8 @@ const createWindow = async () => {
       mainWindow.show();
       mainWindow.focus();
     }
+
+    connector.start();
   });
 
   mainWindow.on('closed', () => {
@@ -127,6 +141,24 @@ app.whenReady().then(createWindow).catch(console.log);
 
 ipcMain.on('asdf', (evt, payload) => {
   console.log(payload);
+});
+
+ipcMain.on(LCUEvents.NeedLCU, (evt) => {
+  console.log(evt);
+  if (isLCUConnected) evt.sender.send(LCUEvents.LCUConnected, LCUData);
+});
+
+connector.on('connect', (data:any) => {
+  console.log(data);
+  LCUData = data;
+  isLCUConnected = true;
+  mainWindow?.webContents.send(LCUEvents.LCUConnected, data);
+});
+
+connector.on('disconnect', () => {
+  console.log('disconnect');
+  isLCUConnected = false;
+  mainWindow?.webContents.send(LCUEvents.LCUClosed);
 });
 
 app.on('activate', () => {

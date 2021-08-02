@@ -1,0 +1,47 @@
+## asdf
+GET https://riot:g_DGO1xEUU36me4nZgn9Eg@127.0.0.1:57718/lol-champ-select/v1/session HTTP/1.1
+
+
+### asdf
+GET https://riot:1UZNG1b3YFmx55uS41vukQ@127.0.0.1:55292/lol-summoner/v1/summoners/23614482 HTTP/1.1
+
+### asdf
+GET https://riot:1UZNG1b3YFmx55uS41vukQ@127.0.0.1:55292/lol-champ-select/v1/session HTTP/1.1
+
+### asdf
+GET https://riot:prfDCZ23tciMsv-QFZ5L7w@127.0.0.1:56497/lol-summoner/v1/current-summoner/ HTTP/1.1
+
+### asdf
+GET https://riot:1q3HF5XtoeVlEE_NKIJikg@127.0.0.1:58719/lol-summoner/v2/summoners/?ids=[1,"23614482",3] HTTP/1.1
+
+### asdf
+GET https://riot:1q3HF5XtoeVlEE_NKIJikg@127.0.0.1:58719/lol-summoner/v1/summoners/?name=달콤치츄 HTTP/1.1
+
+### asdf
+GET https://riot:1q3HF5XtoeVlEE_NKIJikg@127.0.0.1:58719/lol-ranked/v1/current-ranked-stats HTTP/1.1
+
+### asdf
+GET https://riot:1q3HF5XtoeVlEE_NKIJikg@127.0.0.1:58719/lol-ranked/v1/ranked-stats/?puuids=["3aaff996-ff86-52f2-9f65-f99d6a690163","3aaff996-ff86-52f2-9f65-f99d6a690164","1c2cdb73-eaa6-5bb7-b67f-ce46ff218191",""] HTTP/1.1
+
+### asdf
+GET https://riot:1q3HF5XtoeVlEE_NKIJikg@127.0.0.1:58719/lol-ranked/v2/tiers?queueTypes=["RANKED_SOLO_5x5"]&summonerIds=[23614482] HTTP/1.1
+
+### asdf
+PATCH https://riot:1UZNG1b3YFmx55uS41vukQ@127.0.0.1:55292/lol-champ-select/v1/session/actions/13 HTTP/1.1
+
+{
+        "actorCellId": 0,
+        "championId": 3,
+        "completed": false,
+        "id": 99,
+        "isAllyAction": true,
+        "isInProgress": true,
+        "pickTurn": 1,
+        "type": "pick"
+}
+
+### 현재 상태 보기
+GET https://riot:g_DGO1xEUU36me4nZgn9Eg@127.0.0.1:57718/lol-gameflow/v1/session HTTP/1.1
+
+### 매치메이킹
+GET https://riot:EnZGyMymupMM6IUhHQvd4w@127.0.0.1:58736/lol-matchmaking/v1/search HTTP/1.1

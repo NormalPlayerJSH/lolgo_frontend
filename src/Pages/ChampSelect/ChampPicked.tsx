@@ -23,6 +23,7 @@ export default function ChampPicked(props:ChampPickedProps) {
       <div>
         {ChampMeta[championId].name}
       </div>
+      <img src={`http://ddragon.leagueoflegends.com/cdn/11.15.1/img/champion/${ChampMeta[championId].id}.png`} alt="" />
       <div>
         {name}
       </div>

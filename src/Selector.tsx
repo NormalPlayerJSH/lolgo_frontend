@@ -5,6 +5,7 @@ import { UserInfoI } from './types/props';
 import ChampSelect from './Pages/ChampSelect/ChampSelect';
 import InGame from './Pages/InGame/InGame';
 import Main from './Pages/Main/Main';
+import Loading from './Pages/Loading/Loading';
 
 export default function Selector() {
   const [Phase, setPhase] = useState<GameFlow>(GameFlow.None);
@@ -45,11 +46,7 @@ export default function Selector() {
     return () => { clearInterval(intervalNum); };
   }, []);
   if (!UserInfo) {
-    return (
-      <div>
-        로딩중
-      </div>
-    );
+    return <Loading />;
   }
   switch (Phase) {
     case GameFlow.ChampSelect:

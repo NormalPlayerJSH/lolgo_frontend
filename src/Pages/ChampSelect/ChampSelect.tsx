@@ -7,6 +7,7 @@ import {
 } from '../../types/props';
 import { Rank } from '../../types/enum';
 import ChampPicked from './ChampPicked';
+import Loading from '../Loading/Loading';
 
 export default function ChampSelect(props:{UserInfo:UserInfoI}) {
   const { UserInfo } = props;
@@ -134,7 +135,7 @@ export default function ChampSelect(props:{UserInfo:UserInfoI}) {
       isAllyAction,
     };
   };
-  if (!BanPickInfo) return <div>로딩중</div>;
+  if (!BanPickInfo) return <Loading />;
   return (
     <div>
       <div>

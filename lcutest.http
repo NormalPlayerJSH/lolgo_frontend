@@ -6,6 +6,18 @@ GET https://riot:g_DGO1xEUU36me4nZgn9Eg@127.0.0.1:57718/lol-champ-select/v1/sess
 GET https://riot:1UZNG1b3YFmx55uS41vukQ@127.0.0.1:55292/lol-summoner/v1/summoners/23614482 HTTP/1.1
 
 ### asdf
+GET https://riot:8acYbYW4PFPJ0Xr3T3l_AA@127.0.0.1:53201/lol-champ-select/v1/all-grid-champions HTTP/1.1
+
+### asdf
+GET https://riot:8acYbYW4PFPJ0Xr3T3l_AA@127.0.0.1:53201/swagger/v2/swagger.json HTTP/1.1
+
+### asdf
+GET https://riot:8acYbYW4PFPJ0Xr3T3l_AA@127.0.0.1:53201/lol-champions/v1/inventories/23614482/champions HTTP/1.1
+
+### asdf
+GET https://127.0.0.1:2999/swagger/v2/swagger.json HTTP/1.1
+
+### asdf
 GET https://riot:1UZNG1b3YFmx55uS41vukQ@127.0.0.1:55292/lol-champ-select/v1/session HTTP/1.1
 
 ### asdf

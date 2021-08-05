@@ -1,0 +1,16 @@
+#headerDiv {
+  background-color: #191c20;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+}
+
+#headerInner {
+  width: 78.33%;
+  height: 100%;
+  align-items: center;
+}
+
+#headerLogo {
+  height: 65.7%;
+}

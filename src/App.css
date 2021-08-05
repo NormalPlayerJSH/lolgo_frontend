@@ -1,0 +1,32 @@
+div {
+  display: flex;
+}
+
+html {
+  font-size: 0.0694444vw;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+#full {
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  background-color: #2f323b;
+}
+
+header {
+  width: 100%;
+  height: 7%;
+}
+
+#contents {
+  width: 100%;
+  height: 93%;
+}

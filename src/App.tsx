@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { ipcRenderer } from 'electron';
 import axios from 'axios';
-import './App.global.css';
+import styles from './App.css';
 import { LCUEvents } from './types/enum';
 import { LCUConnectorDataI } from './types/LCUConnector';
 import Selector from './Selector';
 import NeedLoL from './Pages/NeedLoL/NeedLoL';
+import Loading from './Pages/Loading/Loading';
+import Header from './Pages/Header/Header';
 
 const checker = (isLCUConnected:boolean) => {
+  return <NeedLoL />;
   if (isLCUConnected) {
     return (<Selector />);
   }
@@ -29,9 +32,15 @@ export default function App() {
     });
     ipcRenderer.send(LCUEvents.NeedLCU);
   }, []);
-
   return (
-    checker((IsLCUConnected as boolean))
+    <div id={styles.full}>
+      <header>
+        <Header />
+      </header>
+      <div id={styles.contents}>
+        {checker((IsLCUConnected as boolean))}
+      </div>
+    </div>
   );
   // return (
   //   <Router>

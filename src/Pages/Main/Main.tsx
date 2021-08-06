@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { MainProps, UserInfoI, MatchInfoI } from '../../types/props';
-import { getProfileIcon } from '../../Meta/DataDragon';
 import Loading from '../Loading/Loading';
 import MainDesign from './MainDesign';
 
@@ -19,7 +18,7 @@ export default function Main(props:{userInfo:UserInfoI, profileIconId:number}) {
           const { games } = res.data.games;
           const matchInfo:[MatchInfoI] = games.map((game:any) => {
             const {
-              gameDuration, gameId, gameCreation, gameMode, participants,
+              gameDuration, gameId, gameCreation, gameMode, gameType, participants, queueId,
             } = game;
             const {
               championId, spell1Id, spell2Id, stats,
@@ -41,7 +40,9 @@ export default function Main(props:{userInfo:UserInfoI, profileIconId:number}) {
               duration: gameDuration,
               gameId,
               playDate: gameCreation,
-              matchType: gameMode,
+              gameMode,
+              gameType,
+              queueId,
               championId,
               spell1: spell1Id,
               spell2: spell2Id,
@@ -81,13 +82,4 @@ export default function Main(props:{userInfo:UserInfoI, profileIconId:number}) {
   }
   // eslint-disable-next-line react/jsx-props-no-spreading
   return <MainDesign {...MainPropsData} />;
-
-  return (
-    <div>
-      Main 페이지입니다.
-      <br />
-      {userInfo.name}
-      <img src={getProfileIcon(profileIconId)} alt="" />
-    </div>
-  );
 }

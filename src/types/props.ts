@@ -55,7 +55,9 @@ export interface MatchInfoI {
   death: number;
   assist: number;
   championId: number;
-  matchType: string;
+  gameMode: string;
+  gameType: string;
+  queueId: number;
   spell1: number;
   spell2: number;
   perk1: number;

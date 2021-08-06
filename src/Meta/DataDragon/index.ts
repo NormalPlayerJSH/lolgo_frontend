@@ -8,7 +8,7 @@ export const getProfileIcon = (profileIconId:number) => `http://ddragon.leagueof
 
 export const getChampionImage = (key:number) => `http://ddragon.leagueoflegends.com/cdn/${currentVersion}/img/champion/${ChampMeta[key].id}.png`;
 
-export const getSpellImage = (key:number) => `http://ddragon.leagueoflegends.com/cdn/${currentVersion}/img/champion/${SpellMeta[key].id}.png`;
+export const getSpellImage = (key:number) => `http://ddragon.leagueoflegends.com/cdn/${currentVersion}/img/spell/${SpellMeta[key].id}.png`;
 
 export const getPerksImage = (id:number) => PerksImage[PerksMeta[id].key];
 

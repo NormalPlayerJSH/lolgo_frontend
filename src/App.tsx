@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ipcRenderer } from 'electron';
 import axios from 'axios';
-import { getProfileIcon, getPerksImage } from './Meta/DataDragon';
 import styles from './App.css';
 import { LCUEvents } from './types/enum';
 import { LCUConnectorDataI } from './types/LCUConnector';

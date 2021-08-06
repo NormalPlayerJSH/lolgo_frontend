@@ -1,0 +1,98 @@
+#mainDiv {
+  justify-content: center;
+  width: 100%;
+  height: auto;
+}
+
+#mainInner {
+  width: 85%;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+#mainProfile {
+  margin-top: 50rem;
+  margin-bottom: 35rem;
+  width: 100%;
+  height: 140rem;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+#mainProfileIcon {
+  width: 140rem;
+  height: auto;
+  border-radius: 50%;
+}
+
+#mainNames {
+  height: auto;
+  align-items: flex-end;
+  color: #eaeaea;
+  margin-left: 15rem;
+  margin-bottom: 10rem;
+}
+
+#mainName {
+  font-size: 50rem;
+  font-weight: bold;
+}
+
+#mainRank {
+  font-size: 20rem;
+  margin-left: 15rem;
+  margin-bottom: 10rem;
+}
+
+#mainHistoryDiv {
+  width: 100%;
+  justify-content: space-between;
+}
+
+#mainHistoriesDiv {
+  width: 65%;
+  flex-direction: column;
+}
+
+#mainHistoryTotalDiv {
+  width: 33%;
+  height: 250rem;
+  background: #191c20;
+  align-items: center;
+}
+
+#totalInner {
+  width: 100%;
+  height: 70%;
+}
+
+#kda,
+#rate {
+  width: 50%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#kda {
+  border-right: solid;
+  border-width: 1px;
+  border-color: #707070;
+}
+
+.totalName {
+  font-size: 25rem;
+  color: #707070;
+}
+
+.totalData {
+  font-size: 36rem;
+  font-weight: bold;
+  color: white;
+}
+
+.totalExplain {
+  font-size: 25rem;
+  color: #8d8d8d;
+}

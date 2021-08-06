@@ -5,10 +5,10 @@ GET http://ddragon.leagueoflegends.com/cdn/11.15.1/data/ko_KR/summoner.json HTTP
 GET https://riot:wqMq5AupHFiFdMuLidDf0g@127.0.0.1:62371/lol-champ-select/v1/session HTTP/1.1
 
 ### asdf
-GET https://riot:wqMq5AupHFiFdMuLidDf0g@127.0.0.1:62371/lol-match-history/v3/matchlist/account/203473417?puuid=asdf HTTP/1.1
+GET https://riot:wqMq5AupHFiFdMuLidDf0g@127.0.0.1:62371/lol-match-history/v1/games/5318861559 HTTP/1.1
 
 ### asdf
-GET https://riot:wqMq5AupHFiFdMuLidDf0g@127.0.0.1:62371/lol-match-history/v1/products/lol/current-summoner/matches HTTP/1.1
+GET https://riot:aiahTAe0dnnKMQA6tpGbmA@127.0.0.1:57314/lol-match-history/v1/products/lol/current-summoner/matches HTTP/1.1
 
 ### asdf
 GET https://riot:1UZNG1b3YFmx55uS41vukQ@127.0.0.1:55292/lol-summoner/v1/summoners/23614482 HTTP/1.1

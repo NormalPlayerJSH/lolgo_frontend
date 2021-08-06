@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ipcRenderer } from 'electron';
 import axios from 'axios';
+import { getProfileIcon, getPerksImage } from './Meta/DataDragon';
 import styles from './App.css';
 import { LCUEvents } from './types/enum';
 import { LCUConnectorDataI } from './types/LCUConnector';
@@ -10,7 +11,7 @@ import Loading from './Pages/Loading/Loading';
 import Header from './Pages/Header/Header';
 
 const checker = (isLCUConnected:boolean) => {
-  return <NeedLoL />;
+  // return <Loading />;
   if (isLCUConnected) {
     return (<Selector />);
   }

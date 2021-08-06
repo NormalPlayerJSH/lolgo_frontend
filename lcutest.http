@@ -1,12 +1,20 @@
-## asdf
-GET https://riot:g_DGO1xEUU36me4nZgn9Eg@127.0.0.1:57718/lol-champ-select/v1/session HTTP/1.1
+### asdf
+GET http://ddragon.leagueoflegends.com/cdn/11.15.1/data/ko_KR/summoner.json HTTP/1.1
 
+### asdf
+GET https://riot:wqMq5AupHFiFdMuLidDf0g@127.0.0.1:62371/lol-champ-select/v1/session HTTP/1.1
+
+### asdf
+GET https://riot:wqMq5AupHFiFdMuLidDf0g@127.0.0.1:62371/lol-match-history/v3/matchlist/account/203473417?puuid=asdf HTTP/1.1
+
+### asdf
+GET https://riot:wqMq5AupHFiFdMuLidDf0g@127.0.0.1:62371/lol-match-history/v1/products/lol/current-summoner/matches HTTP/1.1
 
 ### asdf
 GET https://riot:1UZNG1b3YFmx55uS41vukQ@127.0.0.1:55292/lol-summoner/v1/summoners/23614482 HTTP/1.1
 
 ### asdf
-GET https://riot:8acYbYW4PFPJ0Xr3T3l_AA@127.0.0.1:53201/lol-champ-select/v1/all-grid-champions HTTP/1.1
+GET https://riot:wqMq5AupHFiFdMuLidDf0g@127.0.0.1:62371/lol-summoner/v1/current-summoner HTTP/1.1
 
 ### asdf
 GET https://riot:8acYbYW4PFPJ0Xr3T3l_AA@127.0.0.1:53201/swagger/v2/swagger.json HTTP/1.1

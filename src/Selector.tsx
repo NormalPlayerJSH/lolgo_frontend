@@ -10,6 +10,7 @@ import Loading from './Pages/Loading/Loading';
 export default function Selector() {
   const [Phase, setPhase] = useState<GameFlow>(GameFlow.None);
   const [UserInfo, setUserInfo] = useState<UserInfoI>();
+  const [ProfileIcon, setProfileIcon] = useState<number>();
   useEffect(() => {
     (async () => {
       while (true) {
@@ -17,7 +18,7 @@ export default function Selector() {
         // eslint-disable-next-line no-await-in-loop
           const { data: infoData } = await axios.get('/lol-summoner/v1/current-summoner');
           const {
-            accountId, displayName: name, puuid, summonerId,
+            accountId, displayName: name, puuid, summonerId, profileIconId,
           } = infoData;
           // eslint-disable-next-line no-await-in-loop
           const { data: { queueMap: { RANKED_SOLO_5x5: rankData } } } = await axios.get('/lol-ranked/v1/current-ranked-stats');
@@ -26,11 +27,12 @@ export default function Selector() {
           const division = {
             I: 1, II: 2, III: 3, IV: 4, NA: 0,
           }[rankData.division as 'I'|'II'|'III'|'IV'|'NA'] as 0|1|2|3|4;
+          setProfileIcon(profileIconId);
           setUserInfo({
             accountId, name, puuid, summonerId, division, tier,
           });
           console.log({
-            accountId, name, puuid, summonerId, division, tier,
+            accountId, name, puuid, summonerId, division, tier, profileIconId,
           });
           break;
         } catch {
@@ -56,6 +58,6 @@ export default function Selector() {
     case GameFlow.PreEndOfGame:
       return <InGame {...{ UserInfo: UserInfo! }} />;
     default:
-      return <Main {...{ UserInfo: UserInfo! }} />;
+      return <Main {...{ userInfo: UserInfo!, profileIconId: ProfileIcon! }} />;
   }
 }

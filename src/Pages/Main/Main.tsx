@@ -2,10 +2,13 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { MainProps, UserInfoI, MatchInfoI } from '../../types/props';
 import Loading from '../Loading/Loading';
+import History from '../History/History';
 import MainDesign from './MainDesign';
 
-export default function Main(props:{userInfo:UserInfoI, profileIconId:number}) {
-  const { userInfo, profileIconId } = props;
+export default function Main(props:{
+  userInfo:UserInfoI, profileIconId:number, historyGameId:number}) {
+  const { userInfo, profileIconId, historyGameId } = props;
+  const [HistoryGameId, setHistoryGameId] = useState<number>(historyGameId);
   const [MainPropsData, setMainPropsData] = useState<MainProps>();
   useEffect(() => {
     (async () => {
@@ -66,6 +69,7 @@ export default function Main(props:{userInfo:UserInfoI, profileIconId:number}) {
             totalAssist,
             totalWin,
             totalLose,
+            setHistoryId: setHistoryGameId,
           };
           console.log(newMainProp);
           setMainPropsData(newMainProp);
@@ -76,9 +80,14 @@ export default function Main(props:{userInfo:UserInfoI, profileIconId:number}) {
       }
     })();
   }, []);
-
+  const closeHistory = () => {
+    setHistoryGameId(-1);
+  };
   if (!MainPropsData) {
     return <Loading />;
+  }
+  if (HistoryGameId !== -1) {
+    return <History gameId={HistoryGameId} close={closeHistory} />;
   }
   // eslint-disable-next-line react/jsx-props-no-spreading
   return <MainDesign {...MainPropsData} />;

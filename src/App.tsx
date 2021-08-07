@@ -12,9 +12,9 @@ import Header from './Pages/Header/Header';
 const checker = (isLCUConnected:boolean) => {
   // return <Loading />;
   if (isLCUConnected) {
-    return (<Selector />);
+    return <Selector />;
   }
-  return (<NeedLoL />);
+  return <NeedLoL />;
 };
 
 export default function App() {
@@ -38,7 +38,7 @@ export default function App() {
         <Header />
       </header>
       <div id={styles.contents}>
-        {checker((IsLCUConnected as boolean))}
+        {checker(IsLCUConnected)}
       </div>
     </div>
   );

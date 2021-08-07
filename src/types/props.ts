@@ -1,4 +1,5 @@
 import { AxiosInstance } from 'axios';
+import React from 'react';
 import { Rank } from './enum';
 
 export interface UserInfoI {
@@ -82,4 +83,5 @@ export interface MainProps {
   totalAssist: number;
   totalWin: number;
   totalLose: number;
+  setHistoryId: React.Dispatch<React.SetStateAction<number>>;
 }

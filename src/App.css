@@ -13,6 +13,7 @@ body {
   margin: 0;
   font-family: 'Noto Sans KR', sans-serif;
   background-color: #2f323b;
+  user-select: none;
 }
 
 #full {

@@ -7,7 +7,7 @@ import styles from './MainDesign.css';
 
 export default function MainDesign(props:MainProps) {
   const {
-    userInfo, profileIconId, matchInfo,
+    setHistoryId, userInfo, profileIconId, matchInfo,
     totalKill, totalDeath, totalAssist, totalWin, totalLose,
   } = props;
   const rankInfo = () => {
@@ -33,9 +33,6 @@ export default function MainDesign(props:MainProps) {
     return `${ratePercent}%`;
   };
   const getRateExplain = () => `${totalWin}W ${totalLose}L`;
-  const matchOnClick = (gameId:number) => {
-    alert(gameId);
-  };
 
   return (
     <div id={styles.mainDiv}>
@@ -54,7 +51,7 @@ export default function MainDesign(props:MainProps) {
                 (match:MatchInfoI) => (
                   <HistoryEach
                     matchInfo={match}
-                    matchOnClick={matchOnClick}
+                    matchOnClick={setHistoryId}
                     key={match.gameId}
                   />
                 ),

@@ -58,6 +58,6 @@ export default function Selector() {
     case GameFlow.PreEndOfGame:
       return <InGame {...{ UserInfo: UserInfo! }} />;
     default:
-      return <Main {...{ userInfo: UserInfo!, profileIconId: ProfileIcon! }} />;
+      return <Main {...{ userInfo: UserInfo!, profileIconId: ProfileIcon!, historyGameId: -1 }} />;
   }
 }

@@ -7,10 +7,13 @@ import { LCUConnectorDataI } from './types/LCUConnector';
 import Selector from './Selector';
 import NeedLoL from './Pages/NeedLoL/NeedLoL';
 import Loading from './Pages/Loading/Loading';
+import ChampSelectDesign from './Pages/ChampSelect/ChampSelectDesign';
+import { DummyData } from './Pages/ChampSelect/DummyData';
 import Header from './Pages/Header/Header';
 
 const checker = (isLCUConnected:boolean) => {
-  // return <Loading />;
+  // eslint-disable-next-line react/jsx-props-no-spreading
+  return <ChampSelectDesign {...DummyData} />;
   if (isLCUConnected) {
     return <Selector />;
   }

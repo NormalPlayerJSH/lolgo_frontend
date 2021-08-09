@@ -12,8 +12,8 @@ export interface UserInfoI {
 }
 
 export interface ChampSelectPlayerInfoI {
-  myTeam: [number];
-  theirTeam: [number];
+  myTeam: number[];
+  theirTeam: number[];
   myTeamInfo: {
     [x: number]: UserInfoI;
   };
@@ -29,8 +29,8 @@ export interface PickInfoI {
 }
 
 export interface BanPickInfoI {
-  ourBan: [number?];
-  theirBan: [number?];
+  ourBan:number[];
+  theirBan: number[];
   [x: number]: PickInfoI;
 }
 
@@ -40,14 +40,14 @@ export interface ChampPickedProps {
 }
 
 export interface ChampRequestInfoI {
-  bans: [number?];
-  ally: [number?];
-  enemy: [number?];
+  bans: number[];
+  ally: number[];
+  enemy: number[];
 }
 
 export interface ChampRecommendInfoI {
-  good: [number];
-  bad: [number];
+  good: number[];
+  bad: number[];
 }
 
 export interface MatchInfoI {
@@ -84,4 +84,27 @@ export interface MainProps {
   totalWin: number;
   totalLose: number;
   setHistoryId: React.Dispatch<React.SetStateAction<number>>;
+}
+
+export interface BanPickPlayerInfoI {
+  myTeam: {
+    ban: number[],
+    pick: {
+      pickInfo: PickInfoI
+      playerInfo: UserInfoI
+      isMe: boolean
+    }[]
+  },
+  theirTeam: {
+    ban: number[],
+    pick: {
+      pickInfo: PickInfoI
+    }[]
+  }
+}
+
+export interface ChampSelectProps {
+  BanPickPlayerInfo: BanPickPlayerInfoI
+  ChampRecommendInfo: ChampRecommendInfoI
+  Me: PickInfoI
 }

@@ -2,11 +2,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import {
-  UserInfoI, ChampSelectPlayerInfoI, BanPickInfoI, ChampPickedProps, PickInfoI,
-  ChampRequestInfoI, ChampRecommendInfoI,
+  UserInfoI, ChampSelectPlayerInfoI, BanPickInfoI, PickInfoI,
+  ChampRequestInfoI, ChampRecommendInfoI, BanPickPlayerInfoI,
 } from '../../types/props';
 import { Rank } from '../../types/enum';
-import ChampPicked from './ChampPicked';
+import ChampSelectDesign from './ChampSelectDesign';
 import Loading from '../Loading/Loading';
 
 export default function ChampSelect(props:{UserInfo:UserInfoI}) {
@@ -14,7 +14,10 @@ export default function ChampSelect(props:{UserInfo:UserInfoI}) {
   const [PlayerInfo, setPlayerInfo] = useState<ChampSelectPlayerInfoI>();
   const [BanPickInfo, setBanPickInfo] = useState<BanPickInfoI>();
   const [ChampRequestInfo, setChampRequestInfo] = useState<ChampRequestInfoI>();
-  const [ChampRecommendInfo, setChampRecommendInfo] = useState<ChampRecommendInfoI>();
+  const [ChampRecommendInfo, setChampRecommendInfo] = useState<ChampRecommendInfoI>({
+    good: [0, 0, 0, 0, 0],
+    bad: [0, 0, 0, 0, 0],
+  });
   useEffect(() => {
     (async () => {
       while (true) {
@@ -135,42 +138,28 @@ export default function ChampSelect(props:{UserInfo:UserInfoI}) {
       isAllyAction,
     };
   };
-  if (!BanPickInfo) return <Loading />;
+  if (!BanPickInfo || !PlayerInfo) return <Loading />;
+  const BanPickPlayerInfo: BanPickPlayerInfoI = {
+    myTeam: {
+      ban: BanPickInfo.ourBan,
+      pick: PlayerInfo.myTeam.map((cellNum) => ({
+        pickInfo: BanPickChecker(cellNum, true),
+        playerInfo: PlayerInfo.myTeamInfo[cellNum],
+        isMe: cellNum === PlayerInfo.myCellId,
+      })),
+    },
+    theirTeam: {
+      ban: BanPickInfo.theirBan,
+      pick: PlayerInfo.theirTeam.map((cellNum) => ({
+        pickInfo: BanPickChecker(cellNum, false),
+      })),
+    },
+  };
   return (
-    <div>
-      <div>
-        아군
-        {
-          PlayerInfo?.myTeam.map((cellId) => (
-            <>
-              <ChampPicked
-                pickInfo={BanPickChecker(cellId, true)}
-                userInfo={PlayerInfo.myTeamInfo[cellId]}
-              />
-              <br />
-            </>
-          ))
-        }
-        <div>
-          {BanPickInfo.ourBan}
-        </div>
-      </div>
-      <br />
-      <br />
-      <div>
-        상대
-        {
-          PlayerInfo?.theirTeam.map((cellId) => (
-            <>
-              <ChampPicked pickInfo={BanPickChecker(cellId, false)} />
-              <br />
-            </>
-          ))
-        }
-        <div>
-          {BanPickInfo.theirBan}
-        </div>
-      </div>
-    </div>
+    <ChampSelectDesign
+      BanPickPlayerInfo={BanPickPlayerInfo}
+      ChampRecommendInfo={ChampRecommendInfo}
+      Me={BanPickChecker(PlayerInfo.myCellId, true)}
+    />
   );
 }

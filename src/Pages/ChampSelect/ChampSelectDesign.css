@@ -1,0 +1,185 @@
+#ChampSelectDiv {
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+}
+
+#ChampSelectInner {
+  width: 85%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#top {
+  width: 100%;
+  height: 7%;
+  justify-content: space-between;
+}
+
+#mid {
+  width: 100%;
+  height: 65%;
+  justify-content: space-between;
+}
+
+#bot {
+  width: 30%;
+  height: 12%;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.bansDiv {
+  width: 35%;
+  height: 100%;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+#theirBanDiv {
+  flex-direction: row-reverse;
+}
+
+.banDiv {
+  height: 100%;
+}
+
+.banImg {
+  height: 100%;
+}
+
+#timerDiv {
+  width: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+#timerText {
+  font-size: 40rem;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.pickDiv {
+  width: 35%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#recommend {
+  width: 23%;
+  height: 100%;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.recommends {
+  width: 45%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#recommendLine {
+  width: 3rem;
+  height: 90%;
+  background: #707070;
+}
+
+.recommendText {
+  height: 10%;
+  font-size: 30rem;
+  text-align: center;
+}
+
+#bestText {
+  color: #425cea;
+}
+
+#worstText {
+  color: #d95b5b;
+}
+
+.recommendDiv {
+  width: 100%;
+  height: 90%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.oneRecommend {
+  height: 17%;
+  position: relative;
+  cursor: pointer;
+}
+
+.recommendImg {
+  height: 100%;
+  width: auto;
+}
+
+.recommendBG {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background: #000000af;
+  justify-content: center;
+  align-items: center;
+}
+
+.oneRecommend:hover .recommendBG {
+  display: flex;
+}
+
+.recommendName {
+  color: #afaeae;
+  font-size: 15rem;
+  word-break: keep-all;
+  text-align: center;
+}
+
+#selectImgDiv {
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  border: solid;
+  border-color: #707070;
+  border-width: 4rem;
+}
+
+#selectImg {
+  height: 100%;
+  width: auto;
+  transform: scale(1.2);
+}
+
+#selectBtn {
+  height: 50%;
+  background: #191c20;
+  justify-content: center;
+  align-items: center;
+  padding-left: 20rem;
+  padding-right: 20rem;
+  border-radius: 25rem;
+}
+
+#selectText {
+  font-size: 20rem;
+  color: #afaeae;
+}
+
+.doing #selectBtn {
+  cursor: pointer;
+  background: #446fa8;
+}
+
+.doing #selectText {
+  color: white;
+}

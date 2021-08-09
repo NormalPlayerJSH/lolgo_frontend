@@ -1,0 +1,86 @@
+#ChampPickDiv {
+  width: 100%;
+  height: 16%;
+  color: white;
+  font-size: 20rem;
+  align-items: center;
+}
+
+.allyPick {
+  flex-direction: row-reverse;
+}
+
+.enemyPick {
+  flex-direction: row;
+}
+
+#ChampImgDiv {
+  height: 100%;
+  width: auto;
+  border-radius: 50%;
+  overflow: hidden;
+  border: solid;
+  border-width: 3rem;
+}
+
+.allyPick #ChampImgDiv {
+  border-color: #707070;
+  margin-left: 20rem;
+}
+
+.enemyPick #ChampImgDiv {
+  border-color: #651400;
+  margin-right: 20rem;
+}
+
+#ChampImg {
+  height: 100%;
+  width: auto;
+  transform: scale(1.2);
+}
+
+#name {
+  flex-direction: column;
+}
+
+.allyPick #name {
+  align-items: flex-end;
+}
+
+#nick {
+  color: #afaeae;
+  font-size: 25rem;
+}
+
+.bold {
+  color: yellow !important;
+}
+
+#champName {
+  color: #706f71;
+  font-size: 23rem;
+}
+
+.dontShow {
+  display: none;
+}
+
+#tier {
+  margin-left: 5%;
+  margin-right: auto;
+  color: #8b8a8b;
+  font-size: 23rem;
+}
+
+#doingBar {
+  height: 100%;
+  width: 3%;
+}
+
+.allyPick .doing {
+  background: #464a4d;
+}
+
+.enemyPick .doing {
+  background: #651400;
+}

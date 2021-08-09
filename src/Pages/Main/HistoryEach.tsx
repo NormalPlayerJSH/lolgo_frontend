@@ -52,11 +52,11 @@ export default function HistoryEach(props:{
     const day = hour / 24;
     const month = day / 30;
     const year = month / 12;
-    if (year > 1) return `${year.toFixed()}년 전`;
-    if (month > 1) return `${month.toFixed()}개월 전`;
-    if (day > 1) return `${day.toFixed()}일 전`;
-    if (hour > 1) return `${hour.toFixed()}시간 전`;
-    if (minute > 1) return `${minute.toFixed()}분 전`;
+    if (year > 0) return `${year.toFixed()}년 전`;
+    if (month > 0) return `${month.toFixed()}개월 전`;
+    if (day > 0) return `${day.toFixed()}일 전`;
+    if (hour > 0) return `${hour.toFixed()}시간 전`;
+    if (minute > 0) return `${minute.toFixed()}분 전`;
     return '1분 전';
   };
 

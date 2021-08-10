@@ -13,6 +13,8 @@ export const DummyData:ChampSelectProps = {
             completed: true,
             isInProgress: false,
             isAllyAction: true,
+            id: 0,
+            pickTurn: 0,
           },
           playerInfo: {
             name: 'NormalPlayerJSH',
@@ -31,6 +33,8 @@ export const DummyData:ChampSelectProps = {
             completed: true,
             isInProgress: false,
             isAllyAction: true,
+            id: 0,
+            pickTurn: 0,
           },
           playerInfo: {
             name: '가나다라마바사아',
@@ -49,6 +53,8 @@ export const DummyData:ChampSelectProps = {
             completed: true,
             isInProgress: false,
             isAllyAction: true,
+            id: 0,
+            pickTurn: 0,
           },
           playerInfo: {
             name: '테스트 닉네임 3',
@@ -67,6 +73,8 @@ export const DummyData:ChampSelectProps = {
             completed: false,
             isInProgress: false,
             isAllyAction: true,
+            id: 0,
+            pickTurn: 0,
           },
           playerInfo: {
             name: '대충닉네임4',
@@ -85,6 +93,8 @@ export const DummyData:ChampSelectProps = {
             completed: true,
             isInProgress: true,
             isAllyAction: true,
+            id: 0,
+            pickTurn: 0,
           },
           playerInfo: {
             name: '대충닉네임5',
@@ -108,6 +118,8 @@ export const DummyData:ChampSelectProps = {
             completed: true,
             isInProgress: false,
             isAllyAction: false,
+            id: 0,
+            pickTurn: 0,
           },
         },
         {
@@ -117,6 +129,8 @@ export const DummyData:ChampSelectProps = {
             completed: true,
             isInProgress: false,
             isAllyAction: false,
+            id: 0,
+            pickTurn: 0,
           },
         },
         {
@@ -126,6 +140,8 @@ export const DummyData:ChampSelectProps = {
             completed: true,
             isInProgress: false,
             isAllyAction: false,
+            id: 0,
+            pickTurn: 0,
           },
         },
         {
@@ -135,6 +151,8 @@ export const DummyData:ChampSelectProps = {
             completed: false,
             isInProgress: true,
             isAllyAction: false,
+            id: 0,
+            pickTurn: 0,
           },
         },
         {
@@ -144,6 +162,8 @@ export const DummyData:ChampSelectProps = {
             completed: false,
             isInProgress: false,
             isAllyAction: false,
+            id: 0,
+            pickTurn: 0,
           },
         },
       ],
@@ -159,6 +179,11 @@ export const DummyData:ChampSelectProps = {
     completed: true,
     isInProgress: false,
     isAllyAction: true,
+    id: 0,
+    pickTurn: 0,
   },
+  selectChampion: (n) => console.log(n),
+  lockIn: () => console.log('lockin'),
+  endTime: 100,
 };
 export default DummyData;

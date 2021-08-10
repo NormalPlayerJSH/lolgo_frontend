@@ -26,12 +26,15 @@ export interface PickInfoI {
   completed: boolean;
   isInProgress: boolean;
   isAllyAction: boolean;
+  id: number;
+  pickTurn: number;
 }
 
 export interface BanPickInfoI {
   ourBan:number[];
   theirBan: number[];
   [x: number]: PickInfoI;
+  endTime:number;
 }
 
 export interface ChampPickedProps {
@@ -43,6 +46,7 @@ export interface ChampRequestInfoI {
   bans: number[];
   ally: number[];
   enemy: number[];
+  position: string
 }
 
 export interface ChampRecommendInfoI {
@@ -107,4 +111,7 @@ export interface ChampSelectProps {
   BanPickPlayerInfo: BanPickPlayerInfoI
   ChampRecommendInfo: ChampRecommendInfoI
   Me: PickInfoI
+  selectChampion: (championId:number) => void,
+  lockIn: () => void,
+  endTime: number
 }

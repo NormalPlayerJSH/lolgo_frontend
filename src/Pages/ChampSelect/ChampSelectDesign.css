@@ -115,6 +115,9 @@
 .oneRecommend {
   height: 17%;
   position: relative;
+}
+
+.doing .oneRecommend {
   cursor: pointer;
 }
 

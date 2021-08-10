@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import ChampPick from './ChampPick';
@@ -19,9 +21,9 @@ const getBansComp = (banLis: number[]) => (
   })
 );
 
-const getRecommendsComp = (lis: number[]) => (
+const getRecommendsComp = (lis: number[], selectChampion: (championId:number)=>void) => (
   lis.map((championId) => (
-    <div className={styles.oneRecommend}>
+    <div className={styles.oneRecommend} onClick={() => selectChampion(championId)}>
       <img src={getChampionImage(championId)} alt="" className={styles.recommendImg} />
       <div className={styles.recommendBG}>
         <div className={styles.recommendName}>{ChampMeta[championId].name}</div>
@@ -31,7 +33,9 @@ const getRecommendsComp = (lis: number[]) => (
 );
 
 export default function ChampSelectDesign(props: ChampSelectProps) {
-  const { ChampRecommendInfo, BanPickPlayerInfo, Me } = props;
+  const {
+    ChampRecommendInfo, BanPickPlayerInfo, Me, lockIn, selectChampion, endTime,
+  } = props;
   const { good, bad } = ChampRecommendInfo;
   const { myTeam, theirTeam } = BanPickPlayerInfo;
   const { ban: myTeamBan, pick: myTeamPick } = myTeam;
@@ -40,8 +44,19 @@ export default function ChampSelectDesign(props: ChampSelectProps) {
     if (Me.isInProgress) return styles.doing;
     return styles.notDoing;
   };
+  const getTimeRemain = () => ((endTime - Date.now()) / 1000).toFixed();
+  const LockInOnClick = () => {
+    if (Me.isInProgress) {
+      lockIn();
+    }
+  };
+  const SelectChampionOnClick = (championId: number) => {
+    if (Me.isInProgress) {
+      selectChampion(championId);
+    }
+  };
   return (
-    <div id={styles.ChampSelectDiv}>
+    <div id={styles.ChampSelectDiv} className={getMyStatusClass()}>
       <div id={styles.ChampSelectInner}>
         <div id={styles.top}>
           <div id={styles.ourBanDiv} className={styles.bansDiv}>
@@ -50,7 +65,7 @@ export default function ChampSelectDesign(props: ChampSelectProps) {
             }
           </div>
           <div id={styles.timerDiv}>
-            <div id={styles.timerText}>30</div>
+            <div id={styles.timerText}>{getTimeRemain()}</div>
           </div>
           <div id={styles.theirBanDiv} className={styles.bansDiv}>
             {
@@ -66,14 +81,14 @@ export default function ChampSelectDesign(props: ChampSelectProps) {
             <div id={styles.bestPick} className={styles.recommends}>
               <div id={styles.bestText} className={styles.recommendText}>BEST</div>
               <div id={styles.bestPickDiv} className={styles.recommendDiv}>
-                {getRecommendsComp(good)}
+                {getRecommendsComp(good, SelectChampionOnClick)}
               </div>
             </div>
             <div id={styles.recommendLine} />
             <div id={styles.worstPick} className={styles.recommends}>
               <div id={styles.worstText} className={styles.recommendText}>WORST</div>
               <div id={styles.worstPickDiv} className={styles.recommendDiv}>
-                {getRecommendsComp(bad)}
+                {getRecommendsComp(bad, SelectChampionOnClick)}
               </div>
             </div>
           </div>
@@ -82,11 +97,11 @@ export default function ChampSelectDesign(props: ChampSelectProps) {
               <ChampPick {... oneInfo} isAlly={false} index={idx} />))}
           </div>
         </div>
-        <div id={styles.bot} className={getMyStatusClass()}>
+        <div id={styles.bot}>
           <div id={styles.selectImgDiv}>
-            <img src={getChampionImage(6)} alt="" id={styles.selectImg} />
+            <img src={getChampionImage(Me.championId)} alt="" id={styles.selectImg} />
           </div>
-          <div id={styles.selectBtn}>
+          <div id={styles.selectBtn} onClick={LockInOnClick}>
             <div id={styles.selectText}>선택 완료</div>
           </div>
         </div>

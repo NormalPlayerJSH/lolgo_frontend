@@ -13,7 +13,7 @@ import Header from './Pages/Header/Header';
 
 const checker = (isLCUConnected:boolean) => {
   // eslint-disable-next-line react/jsx-props-no-spreading
-  return <ChampSelectDesign {...DummyData} />;
+  // return <ChampSelectDesign {...DummyData} />;
   if (isLCUConnected) {
     return <Selector />;
   }

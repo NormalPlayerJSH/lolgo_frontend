@@ -1,10 +1,10 @@
 # LOLGO_Frontend
 
-![LOLGO_logo_full](https://user-images.githubusercontent.com/37856995/128960893-5797a852-8841-4f0f-a82c-ad4298e25002.png)
+![롤고 배경](https://user-images.githubusercontent.com/37856995/128962448-39fc7809-0127-4d36-a232-be0b46e72185.png)
 
-## 리그 오브 레전드를 위한 챔피언 추천 프로그램, **LOLGO**
+리그 오브 레전드를 위한 챔피언 추천 프로그램, **LOLGO**
 
-## LOLGO의 프론트엔드 부분 레포지토리입니다.
+LOLGO의 프론트엔드 부분 레포지토리입니다.
 
 ---
 

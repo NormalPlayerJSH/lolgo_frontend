@@ -11,9 +11,9 @@ import ChampSelectDesign from './Pages/ChampSelect/ChampSelectDesign';
 import { DummyData } from './Pages/ChampSelect/DummyData';
 import Header from './Pages/Header/Header';
 
-const checker = (isLCUConnected:boolean) => {
+const checker = (isLCUConnected: boolean) => {
   // eslint-disable-next-line react/jsx-props-no-spreading
-  // return <ChampSelectDesign {...DummyData} />;
+  return <ChampSelectDesign {...DummyData} />;
   if (isLCUConnected) {
     return <Selector />;
   }
@@ -23,12 +23,17 @@ const checker = (isLCUConnected:boolean) => {
 export default function App() {
   const [IsLCUConnected, setIsLCUConnected] = useState<boolean>(false);
   useEffect(() => {
-    ipcRenderer.on(LCUEvents.LCUConnected, (evt, payload:LCUConnectorDataI) => {
-      console.log(payload);
-      axios.defaults.baseURL = `https://127.0.0.1:${payload.port}/`;
-      axios.defaults.headers.common.Authorization = `Basic ${btoa(`riot:${payload.password}`)}`;
-      setIsLCUConnected(true);
-    });
+    ipcRenderer.on(
+      LCUEvents.LCUConnected,
+      (evt, payload: LCUConnectorDataI) => {
+        console.log(payload);
+        axios.defaults.baseURL = `https://127.0.0.1:${payload.port}/`;
+        axios.defaults.headers.common.Authorization = `Basic ${btoa(
+          `riot:${payload.password}`,
+        )}`;
+        setIsLCUConnected(true);
+      },
+    );
     ipcRenderer.on(LCUEvents.LCUClosed, () => {
       console.log('disconnect');
       setIsLCUConnected(false);
@@ -40,9 +45,7 @@ export default function App() {
       <header>
         <Header />
       </header>
-      <div id={styles.contents}>
-        {checker(IsLCUConnected)}
-      </div>
+      <div id={styles.contents}>{checker(IsLCUConnected)}</div>
     </div>
   );
   // return (

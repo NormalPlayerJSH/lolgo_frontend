@@ -115,3 +115,19 @@ export interface ChampSelectProps {
   lockIn: () => void,
   endTime: number
 }
+
+export interface InGamePlayer {
+  userInfo: UserInfoI,
+  championId: number,
+}
+
+export interface InGameProps {
+  info: {
+    blue: InGamePlayer[],
+    red: InGamePlayer[]
+  },
+  me: {
+    team: 'blue'|'red',
+    number: number
+  }
+}

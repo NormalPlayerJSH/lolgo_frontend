@@ -10,10 +10,11 @@ import Loading from './Pages/Loading/Loading';
 import ChampSelectDesign from './Pages/ChampSelect/ChampSelectDesign';
 import { DummyData } from './Pages/ChampSelect/DummyData';
 import Header from './Pages/Header/Header';
+import InGame from './Pages/InGame/InGame';
 
 const checker = (isLCUConnected: boolean) => {
   // eslint-disable-next-line react/jsx-props-no-spreading
-  return <ChampSelectDesign {...DummyData} />;
+  return <InGame />;
   if (isLCUConnected) {
     return <Selector />;
   }

@@ -41,8 +41,11 @@ export default function Selector() {
       }
     })();
     const intervalNum = setInterval(() => {
-      axios.get('/lol-gameflow/v1/session')
-        .then((res) => { setPhase(GameFlow[res.data.phase] as unknown as GameFlow); })
+      axios.get('/lol-gameflow/v1/gameflow-phase')
+        .then((res) => {
+          setPhase(GameFlow[res.data] as unknown as GameFlow);
+          // console.log(JSON.stringify(res.data));
+        })
         .catch(() => { setPhase(GameFlow.None); });
     }, 500);
     return () => { clearInterval(intervalNum); };
@@ -53,10 +56,10 @@ export default function Selector() {
   switch (Phase) {
     case GameFlow.ChampSelect:
       return <ChampSelect {...{ UserInfo: UserInfo! }} />;
-    case GameFlow.InProgress:
+    // case GameFlow.InProgress:
+    //   return <InGame />;
     case GameFlow.WaitingForStats:
     case GameFlow.PreEndOfGame:
-      return <InGame {...{ UserInfo: UserInfo! }} />;
     default:
       return <Main {...{ userInfo: UserInfo!, profileIconId: ProfileIcon!, historyGameId: -1 }} />;
   }

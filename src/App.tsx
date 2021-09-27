@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ipcRenderer } from 'electron';
 import axios from 'axios';
-import styles from './App.css';
+import styles from './App.module.css';
 import { LCUEvents } from './types/enum';
 import { LCUConnectorDataI } from './types/LCUConnector';
 import Selector from './Selector';

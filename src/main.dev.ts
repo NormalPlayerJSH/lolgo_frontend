@@ -116,6 +116,7 @@ const createWindow = async () => {
 
   // Open urls in the user's browser
   mainWindow.webContents.on('new-window', (event, url) => {
+    mainWindow?.webContents.openDevTools();
     event.preventDefault();
     shell.openExternal(url);
   });

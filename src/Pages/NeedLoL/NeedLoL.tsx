@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './NeedLoL.css';
+import styles from './NeedLoL.module.css';
 import { logoFull } from '../../Meta/logo';
 
 export default function NeedLoL() {

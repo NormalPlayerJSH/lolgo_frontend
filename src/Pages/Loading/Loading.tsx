@@ -1,6 +1,6 @@
 import React from 'react';
 import Loader from 'react-loader-spinner';
-import styles from './Loading.css';
+import styles from './Loading.module.css';
 import { logoFull } from '../../Meta/logo';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 

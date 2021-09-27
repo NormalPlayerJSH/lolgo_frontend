@@ -3,7 +3,7 @@ import HistoryEach from './HistoryEach';
 import { MainProps, MatchInfoI } from '../../types/props';
 import { Rank } from '../../types/enum';
 import { getProfileIcon } from '../../Meta/DataDragon';
-import styles from './MainDesign.css';
+import styles from './MainDesign.module.css';
 
 export default function MainDesign(props:MainProps) {
   const {

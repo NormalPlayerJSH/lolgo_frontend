@@ -3,7 +3,7 @@
 import React from 'react';
 import { MatchInfoI } from '../../types/props';
 import { getChampionImage, getPerksImage, getSpellImage } from '../../Meta/DataDragon';
-import styles from './HistoryEach.css';
+import styles from './HistoryEach.module.css';
 
 export default function HistoryEach(props:{
   matchInfo: MatchInfoI, matchOnClick:(gameId:number)=>void}) {

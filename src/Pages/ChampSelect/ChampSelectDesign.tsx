@@ -5,7 +5,7 @@ import React from 'react';
 import ChampPick from './ChampPick';
 import { getChampionImage } from '../../Meta/DataDragon';
 import { ChampSelectProps } from '../../types/props';
-import styles from './ChampSelectDesign.css';
+import styles from './ChampSelectDesign.module.css';
 import { ChampMeta } from '../../Meta/ChampMeta';
 
 const getBansComp = (banLis: number[]) => (

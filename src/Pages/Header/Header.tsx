@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Header.css';
+import styles from './Header.module.css';
 import { logoInline } from '../../Meta/logo';
 
 export default function Header() {

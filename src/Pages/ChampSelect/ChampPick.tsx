@@ -4,7 +4,7 @@ import { ChampMeta } from '../../Meta/ChampMeta';
 import { getChampionImage } from '../../Meta/DataDragon';
 import { Rank } from '../../types/enum';
 import { PickInfoI, UserInfoI } from '../../types/props';
-import styles from './ChampPick.css';
+import styles from './ChampPick.module.css';
 
 export default function ChampPick(props:{
   pickInfo: PickInfoI,

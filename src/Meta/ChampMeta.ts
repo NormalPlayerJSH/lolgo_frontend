@@ -157,6 +157,7 @@ export const ChampMeta:{[x:number]:ChampData} = {
   523: { id: 'Aphelios', key: '523', name: '아펠리오스' },
   526: { id: 'Rell', key: '526', name: '렐' },
   555: { id: 'Pyke', key: '555', name: '파이크' },
+  711: { id: 'Vex', key: '711', name: '벡스' },
   777: { id: 'Yone', key: '777', name: '요네' },
   875: { id: 'Sett', key: '875', name: '세트' },
   876: { id: 'Lillia', key: '876', name: '릴리아' },

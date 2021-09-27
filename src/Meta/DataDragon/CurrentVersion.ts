@@ -1,2 +1,2 @@
-export const currentVersion = '11.15.1';
+export const currentVersion = '11.19.1';
 export default currentVersion;

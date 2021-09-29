@@ -11,10 +11,11 @@ import ChampSelectDesign from './Pages/ChampSelect/ChampSelectDesign';
 import { DummyData } from './Pages/ChampSelect/DummyData';
 import Header from './Pages/Header/Header';
 import InGame from './Pages/InGame/InGame';
+import History from './Pages/History/History';
 
 const checker = (isLCUConnected: boolean) => {
   // eslint-disable-next-line react/jsx-props-no-spreading
-  return <InGame />;
+  return <History gameId={5463096178} close={() => {}} />;
   if (isLCUConnected) {
     return <Selector />;
   }

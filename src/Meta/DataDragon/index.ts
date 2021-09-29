@@ -16,8 +16,14 @@ export const getSpellImage = (key:number) => `http://ddragon.leagueoflegends.com
 
 export const getPerksImage = (id:number) => PerksImage[PerksMeta[id].key];
 
+export const getItemImage = (itemId:number) => {
+  if (itemId === 0) return EmptyImage;
+  return `http://ddragon.leagueoflegends.com/cdn/${currentVersion}/img/item/${itemId}.png`;
+};
+
 export default {
   getProfileIcon,
   getChampionImage,
+  getItemImage,
   getSpellImage,
 };

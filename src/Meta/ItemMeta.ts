@@ -1,4 +1,4 @@
-export const TrinketItemList = {
+export const TrinketItemList: {[x:number]:boolean} = {
   3330: true,
   3340: true,
   3363: true,

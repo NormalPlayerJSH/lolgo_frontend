@@ -5,6 +5,8 @@ export type TowerType =
   | 'NEXUS_TURRET'
   | 'INHIBITOR_BUILDING';
 
+export type TeamType = 100|200;
+
 export type LaneType = 'TOP_LANE' | 'MID_LANE' | 'BOT_LANE';
 
 export type MonsterType =
@@ -22,6 +24,12 @@ export interface FramesData<T> {
 
 export interface EachPlayersData<T> {
   [participantId: number]: T;
+}
+
+export interface EachInfoData {
+  summonerName: string;
+  championId: number;
+  teamId: TeamType
 }
 
 export interface EachKdaData {
@@ -42,7 +50,7 @@ export interface EachTowerData {
   timestamp: number;
   towerType: TowerType;
   laneType: LaneType;
-  teamId: 100 | 200;
+  teamId: TeamType;
 }
 
 export interface EachEliteData {
@@ -52,6 +60,8 @@ export interface EachEliteData {
 }
 
 export interface AnalyInterface {
+  win: TeamType
+  participantInfo: EachPlayersData<EachInfoData>;
   totTime: number;
   totFrame: number;
   highlightData: number[];
@@ -61,4 +71,5 @@ export interface AnalyInterface {
   towerDataFull: EachTowerData[];
   itemData: FramesData<EachPlayersData<number[]>>;
   goldData: FramesData<EachPlayersData<number>>;
+  eliteData: EachEliteData[];
 }

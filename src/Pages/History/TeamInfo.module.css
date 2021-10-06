@@ -1,0 +1,124 @@
+.fullDiv {
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.teamDiv {
+  width: 100%;
+  height: 9%;
+  align-items: flex-end;
+  column-gap: 10rem;
+}
+
+.winOrLose {
+  font-size: 35rem;
+  line-height: 100%;
+  font-weight: 700;
+}
+
+.win {
+  color: #425cea;
+}
+
+.lose {
+  color: #ba5657;
+}
+
+.teamSide {
+  font-size: 23rem;
+  line-height: 100%;
+  color: #e4e4e4;
+}
+
+.playerDiv {
+  width: 100%;
+  height: 89%;
+  flex-direction: column;
+}
+
+.eachPlayerDiv {
+  width: 100%;
+  height: 20%;
+  align-items: center;
+  column-gap: 10rem;
+}
+
+.playerChampImg {
+  height: 80%;
+}
+
+.playerChampImgInner {
+  height: 100%;
+  border: solid;
+  border-radius: 50%;
+  border-color: #888889;
+  border-width: 1rem;
+  overflow: hidden;
+}
+
+.playerChampImgImg {
+  width: auto;
+  height: 100%;
+  transform: scale(1.15);
+}
+
+.playerOthers {
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.playerKDA,
+.playerGold {
+  text-align: center;
+  font-size: 23rem;
+  color: #888889;
+  justify-content: center;
+}
+
+.playerKDA {
+  width: 22%;
+}
+
+.playerGold {
+  width: 30%;
+}
+
+.playerItems {
+  width: 43%;
+  height: 90%;
+  justify-content: center;
+  align-items: center;
+  column-gap: 5rem;
+}
+
+.normalItems {
+  width: 75%;
+  height: 95%;
+  row-gap: 5rem;
+  flex-direction: column;
+}
+
+.normalItemsOneLine {
+  width: 100%;
+  height: 50%;
+  column-gap: 5rem;
+  justify-content: center;
+}
+
+.itemTop {
+  align-items: flex-end;
+}
+
+.itemBottom {
+  align-items: flex-start;
+}
+
+.eachItemImg {
+  width: 33rem;
+  height: 33rem;
+  border-radius: 10rem;
+}

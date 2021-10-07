@@ -7,12 +7,30 @@
 
 .squareDiv {
   position: relative;
-  width: 404rem;
-  height: 404rem;
 }
 
 .mapImg {
   position: absolute;
   width: 100%;
   height: 100%;
+}
+
+.dotOnMap {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+}
+
+.dotBefore {
+  opacity: 0.4;
+}
+
+.dotNow {
+  z-index: 10;
+  border: solid 1rem;
+  border-color: white;
+}
+
+.allDot .dotNow {
+  border: none !important;
 }

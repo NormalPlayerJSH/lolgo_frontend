@@ -80,7 +80,8 @@ function TeamInfo(props: {
   team: TeamType;
   frame: number;
 }) {
-  const { data, team, frame } = props;
+  const { data, team, frame: tempFrame } = props;
+  const frame = tempFrame === -1 ? data.totFrame : tempFrame;
   const isWin = team === data.win;
   return (
     <div className={styles.fullDiv}>

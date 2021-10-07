@@ -185,6 +185,7 @@
     "@types/react-dom": "^16.9.9",
     "@types/react-router-dom": "^5.1.6",
     "@types/react-test-renderer": "^16.9.3",
+    "@types/recharts": "^1.8.20",
     "@types/webpack-env": "^1.15.2",
     "@typescript-eslint/eslint-plugin": "^4.8.1",
     "@typescript-eslint/parser": "^4.8.1",
@@ -254,10 +255,11 @@
     "history": "^5.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-loader-spinner": "^4.0.0",
     "react-router-dom": "^5.2.0",
+    "recharts": "^2.1.4",
     "regenerator-runtime": "^0.13.5",
     "source-map-support": "^0.5.19",
-    "react-loader-spinner": "^4.0.0",
     "swr": "^0.5.6"
   },
   "devEngines": {

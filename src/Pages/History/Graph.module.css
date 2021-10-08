@@ -6,10 +6,22 @@
 }
 
 .tooltip {
-  padding: 10rem;
+  width: 280rem;
   background: #e4e4e4;
+  align-items: center;
+  flex-direction: column;
+}
+
+.tooltipText {
+  padding: 10rem;
 }
 
 .highlight {
   background: gold;
+}
+
+.tooltipEventDiv {
+  width: 100%;
+  background: #191c20;
+  flex-wrap: wrap;
 }

@@ -16,20 +16,20 @@
   font-size: 35rem;
   line-height: 100%;
   font-weight: 700;
+  color: gold;
 }
 
-.win {
-  color: #425cea;
+.blue {
+  color: lightblue;
 }
 
-.lose {
-  color: #ba5657;
+.red {
+  color: coral;
 }
 
 .teamSide {
   font-size: 23rem;
   line-height: 100%;
-  color: #e4e4e4;
 }
 
 .playerDiv {

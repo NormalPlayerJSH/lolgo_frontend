@@ -79,11 +79,20 @@ GET https://riot:EnZGyMymupMM6IUhHQvd4w@127.0.0.1:58736/lol-matchmaking/v1/searc
 GET https://localhost:2999/liveclientdata/playerlist HTTP/1.1
 
 ###
-POST http://api.lolgo.gg/analyrequest HTTP/1.1
+POST http://api.lolgo.gg/analyrequest/ HTTP/1.1
 Content-Type: application/json
 
 {
   "matchId":"5463096178"
+}
+
+
+###
+POST http://api.lolgo.gg/analyrequest HTTP/1.1
+Content-Type: application/json
+
+{
+  "matchId":"5474173397"
 }
 
 ###

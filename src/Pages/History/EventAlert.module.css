@@ -1,0 +1,12 @@
+.eventAlertDiv {
+  width: 50%;
+  justify-content: space-around;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.iconImg {
+  width: 40rem;
+  height: 40rem;
+  border-radius: 50%;
+}

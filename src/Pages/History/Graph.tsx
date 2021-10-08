@@ -4,6 +4,7 @@ import {
 } from 'recharts';
 import { AnalyInterface } from '../../types/analyInterface';
 import styles from './Graph.module.css';
+import EventAlert from './EventAlert';
 
 function Graph(props: {
   data: AnalyInterface,
@@ -53,7 +54,23 @@ function Graph(props: {
                 const isHighlight = data.highlightData.indexOf(label) !== -1;
                 return (
                   <div className={`${styles.tooltip} ${isHighlight ? styles.highlight : ''}`}>
-                    {`${label}분 - ${text}`}
+                    <div className={styles.tooltipText}>{`${label}분 - ${text}`}</div>
+                    <div className={styles.tooltipEventDiv}>
+                      {data.killData[frame].map(
+                        (d) => <EventAlert data={d} info={data.participantInfo} />,
+                      )}
+                      {[...data.eliteData, ...data.towerDataFull].map(
+                        (d) => {
+                          const { timestamp } = d;
+                          if (
+                            (((label - 1) * 60 * 1000) < timestamp)
+                            && (timestamp <= label * 60 * 1000)) {
+                            return <EventAlert data={d} info={data.participantInfo} />;
+                          }
+                          return <></>;
+                        },
+                      )}
+                    </div>
                   </div>
                 );
               }

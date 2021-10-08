@@ -86,8 +86,8 @@ function TeamInfo(props: {
   return (
     <div className={styles.fullDiv}>
       <div className={styles.teamDiv}>
-        <div className={`${styles.winOrLose} ${isWin ? styles.win : styles.lose}`}>{isWin ? '승리' : '패배'}</div>
-        <div className={styles.teamSide}>{team === 100 ? '블루팀' : '레드팀'}</div>
+        <div className={`${styles.winOrLose}`}>{isWin ? '승리' : '패배'}</div>
+        <div className={`${styles.teamSide} ${team === 100 ? styles.blue : styles.red}`}>{team === 100 ? '블루팀' : '레드팀'}</div>
       </div>
       <div className={styles.playerDiv}>
         {Object.keys(data.participantInfo).map((k) => {

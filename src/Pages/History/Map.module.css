@@ -1,8 +1,21 @@
 .fullDiv {
   width: 100%;
   height: 100%;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.closeDiv {
+  width: 80%;
   justify-content: center;
   align-items: center;
+  font-size: 30rem;
+  background: #191c20;
+  color: white;
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+  cursor: pointer;
 }
 
 .squareDiv {

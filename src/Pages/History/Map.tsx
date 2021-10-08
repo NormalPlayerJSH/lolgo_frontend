@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react';
 import styles from './Map.module.css';
 import mapImg from '../../Meta/map.png';
@@ -21,8 +23,11 @@ function Map(props:{
   data: AnalyInterface,
   frame: number
   beforeKillData: FramesData<EachKillData[]>
+  close: () => void
 }) {
-  const { data, frame, beforeKillData } = props;
+  const {
+    data, frame, beforeKillData, close,
+  } = props;
 
   function DotOnMap(p: {
     data: EachKillData|EachEliteData|EachTowerData
@@ -82,6 +87,9 @@ function Map(props:{
 
   return (
     <div className={styles.fullDiv}>
+      <div className={styles.closeDiv} onClick={close}>
+        <div>돌아가기</div>
+      </div>
       <div className={`${styles.squareDiv} ${frame === -1 ? styles.allDot : ''}`} style={{ width: `${squareLength}rem`, height: `${squareLength}rem` }}>
         <img src={mapImg} alt="" className={styles.mapImg} />
         {data.killData[frame].map(

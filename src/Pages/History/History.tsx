@@ -51,7 +51,7 @@ export default function History(props: { gameId: number; close: () => void }) {
           <TeamInfo data={Data} frame={Selected} team={200} />
         </div>
         <div id={styles.mapDiv}>
-          <Map data={Data} frame={Selected} beforeKillData={BeforeKillData} />
+          <Map data={Data} close={close} frame={Selected} beforeKillData={BeforeKillData} />
         </div>
       </div>
       <div id={styles.graphDiv}>

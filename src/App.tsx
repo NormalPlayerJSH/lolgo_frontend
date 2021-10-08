@@ -15,7 +15,7 @@ import History from './Pages/History/History';
 
 const checker = (isLCUConnected: boolean) => {
   // eslint-disable-next-line react/jsx-props-no-spreading
-  return <History gameId={5463096178} close={() => {}} />;
+  // return <History gameId={5463096178} close={() => {}} />;
   if (isLCUConnected) {
     return <Selector />;
   }

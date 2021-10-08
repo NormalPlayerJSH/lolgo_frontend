@@ -12,9 +12,9 @@ const killIcon = (length:string) => (
   ));
 
 const baronIcon = (length:string) => (
-  (team?:TeamType) => {
+  (isWhite?:boolean) => {
     let color = '#d138ca';
-    if (team) color = team === 100 ? '#425cea' : '#ba5657';
+    if (isWhite) color = 'white';
     return (
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="82.28 85.92 105.64 104.59" width={length} height={length} fill={color}>
         <path d="M184.72,108.39l-38.54-22.22c-1.42-0.82-3.06,0.68-2.35,2.17l11.57,24.44c2.17,4.59-1.04,10.11-6.12,10.11  c-0.73,0-1.47-0.12-2.18-0.41c-5-2-12-11.99-12-11.99v-0.02c0,0-7,9.99-12,11.99c-0.71,0.29-1.45,0.41-2.18,0.41  c-5.08,0-8.29-5.52-6.12-10.11l11.57-24.44c0.7-1.49-0.93-2.99-2.35-2.17l-38.54,22.22c-2.99,1.73-4.07,5.52-2.43,8.56l11.06,20.54  c-1.14,21,24,54,27,53s2-12.02,2-12.02h12v0.02h12c0,0-1,11.02,2,12.02s28.14-32,27-53l11.06-20.54  C188.8,113.91,187.72,110.12,184.72,108.39z M122.1,155.47c-2.76,0-5-2.24-5-5s2.24-5,5-5s5,2.24,5,5S124.86,155.47,122.1,155.47z   M135.1,168.47c-2.76,0-5-2.24-5-5s2.24-5,5-5s5,2.24,5,5S137.86,168.47,135.1,168.47z M135.1,142.47c-2.76,0-5-2.24-5-5s2.24-5,5-5  s5,2.24,5,5S137.86,142.47,135.1,142.47z M148.1,155.47c-2.76,0-5-2.24-5-5s2.24-5,5-5s5,2.24,5,5S150.86,155.47,148.1,155.47z" />
@@ -24,7 +24,7 @@ const baronIcon = (length:string) => (
 
 const dragonIcon = (length:string) => (
   (
-    dragon:'FIRE_DRAGON'
+    dragon?:'FIRE_DRAGON'
     | 'EARTH_DRAGON'
     | 'WATER_DRAGON'
     | 'AIR_DRAGON'
@@ -40,17 +40,19 @@ const dragonIcon = (length:string) => (
       100: '#425cea',
       200: '#ba5657',
     };
+    let color = 'white';
+    if (dragon) color = dragonColor[dragon];
     return (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="86.02 79.44 106 108.36" width={length} height={length} fill={dragonColor[dragon] || 'white'}>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="86.02 79.44 106 108.36" width={length} height={length} fill={color}>
         <path d="M192.02,112.8l-18.5-0.5l-1-27l-20,19l-13.5-24.86l-13.5,24.86l-20-19l-1,27l-18.5,0.5l17.64,20.82  c0,0-3.64,26.18,7.36,27.18s20.07,27,20.07,27h7.93h7.93c0,0,9.07-26,20.07-27s7.36-27.18,7.36-27.18L192.02,112.8z M131.52,152.51  c0,0-10-2.21-17-23.21l17,12V152.51z M146.52,152.51V141.3l17-12C156.52,150.3,146.52,152.51,146.52,152.51z" />
       </svg>
     );
   });
 
 const heraldIcon = (length:string) => (
-  (team?:TeamType) => {
+  (isWhite?: boolean) => {
     let color = '#d138ca';
-    if (team) color = team === 100 ? '#425cea' : '#ba5657';
+    if (isWhite) color = 'white';
     return (
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="83.8 88.5 107.03 93.25" width={length} height={length} fill={color}>
         <g>

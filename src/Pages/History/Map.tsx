@@ -55,11 +55,11 @@ function Map(props:{
       halfLength = halfObjectLength;
       x = 7500;
       y = 7500;
-      bgColor = 'white';
       const tId = data.participantInfo[d.killerId].teamId;
-      if (d.monsterType === 'BARON_NASHOR') innerElement = baronIcon(tId);
-      else if (d.monsterType === 'RIFTHERALD') innerElement = heraldIcon(tId);
-      else innerElement = dragonIcon(tId);
+      bgColor = tId === 100 ? blueColor : redColor;
+      if (d.monsterType === 'BARON_NASHOR') innerElement = baronIcon(true);
+      else if (d.monsterType === 'RIFTHERALD') innerElement = heraldIcon(true);
+      else innerElement = dragonIcon();
     }
 
     const left = (squareLength * (x / mapFullSize)) - halfLength;

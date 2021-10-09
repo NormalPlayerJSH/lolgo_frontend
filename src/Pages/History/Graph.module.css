@@ -3,6 +3,19 @@
   height: 100%;
   /* background: linear-gradient(#425cea33,#425cea33,#425cea33,#425cea33,#ba565733,#ba565733,#ba565733,#ba565733);*/
   font-size: 20rem;
+  flex-direction: column;
+}
+
+.objectDiv {
+  width: 100%;
+  height: 20%;
+  background: #000;
+}
+
+.objectEachDiv {
+  width: 100%;
+  height: 100%;
+  border: solid white 2rem;
 }
 
 .tooltip {

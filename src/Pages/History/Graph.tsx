@@ -34,8 +34,23 @@ function Graph(props: {
   };
 
   const off = gradientOffset();
+  // const objectDivLis = [<></>]
+  // let i = 1;
+  // while (i <= data.totFrame){
+  //   objectDivLis.push((
+  //     <div className={styles.objectEachDiv}>
+
+  //     </div>
+  //   ))
+  //   i+=1
+  // }
   return (
     <div className={styles.fullDiv}>
+      {/* <div className={styles.objectDiv}>
+        {
+           objectDivLis
+        }
+      </div> */}
       <ResponsiveContainer width="100%" height="100%">
         <AreaChart
           data={winRateData}

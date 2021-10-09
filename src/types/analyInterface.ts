@@ -51,12 +51,16 @@ export interface EachTowerData {
   towerType: TowerType;
   laneType: LaneType;
   teamId: TeamType;
+  x: number;
+  y: number;
 }
 
 export interface EachEliteData {
   timestamp: number;
   monsterType: MonsterType;
   killerId: number;
+  x: number;
+  y: number;
 }
 
 export interface AnalyInterface {

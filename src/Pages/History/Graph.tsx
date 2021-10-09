@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  AreaChart, Area, Tooltip, ResponsiveContainer,
+  AreaChart, Area, Tooltip, ResponsiveContainer, XAxis,
 } from 'recharts';
 import { AnalyInterface } from '../../types/analyInterface';
 import styles from './Graph.module.css';
@@ -34,6 +34,12 @@ function Graph(props: {
   };
 
   const off = gradientOffset();
+  const ticks = [];
+  let tick = 0;
+  while (tick <= data.totFrame) {
+    ticks.push(tick);
+    tick += 5;
+  }
   // const objectDivLis = [<></>]
   // let i = 1;
   // while (i <= data.totFrame){
@@ -99,6 +105,7 @@ function Graph(props: {
               <stop offset={off} stopColor="#ba5657" stopOpacity={1} />
             </linearGradient>
           </defs>
+          <XAxis ticks={[...ticks]} />
           <Area type="monotone" dataKey="승률" stroke="#e4e4e4" fill="url(#splitColor)" />
         </AreaChart>
       </ResponsiveContainer>

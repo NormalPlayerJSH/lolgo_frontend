@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  AreaChart, Area, Tooltip, ResponsiveContainer, XAxis,
+  AreaChart, Area, Tooltip, ResponsiveContainer, XAxis, ReferenceLine, ReferenceArea,
 } from 'recharts';
 import { AnalyInterface } from '../../types/analyInterface';
 import styles from './Graph.module.css';
@@ -15,7 +15,7 @@ function Graph(props: {
   const winRateData = data.winRate.slice(0, data.totFrame + 1).map((y, x) => {
     const value = (y - 0.5) * 100;
     return {
-      name: `${x}분`,
+      name: x,
       승률: value,
     };
   });
@@ -105,7 +105,15 @@ function Graph(props: {
               <stop offset={off} stopColor="#ba5657" stopOpacity={1} />
             </linearGradient>
           </defs>
-          <XAxis ticks={[...ticks]} />
+          <XAxis ticks={[...ticks]} type="number" dataKey="name" />
+          <ReferenceLine y={0} />
+          {
+            data.highlightData.map((minute) => (
+              // <ReferenceLine x={minute} stroke="yellow" strokeDasharray="3 3" />
+              <ReferenceArea x1={minute - 0.5} x2={minute} />
+            ))
+          }
+
           <Area type="monotone" dataKey="승률" stroke="#e4e4e4" fill="url(#splitColor)" />
         </AreaChart>
       </ResponsiveContainer>

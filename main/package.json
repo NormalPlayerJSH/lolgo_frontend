@@ -1,25 +1,66 @@
 {
-  "name": "main",
-  "version": "1.0.0",
+  "name": "LOLGO",
+  "version": "0.2.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "tsc index.ts && electron .",
-    "start:wait": "wait-on http://localhost:3000 && npm run start"
+    "start:wait": "wait-on http://localhost:3000 && npm run start",
+    "build":"npm run build:macarm && npm run build:macintel && npm run build:win",
+    "build:macarm": "electron-builder --mac --arm64",
+    "build:macintel": "electron-builder --mac --x64",
+    "build:win": "electron-builder --win --ia32"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/electron": "^1.6.10"
+    "@types/electron": "^1.6.10",
+    "electron-builder": "^22.13.1",
+    "electron": "^15.1.2"
   },
   "dependencies": {
     "cross-env": "^7.0.3",
-    "electron": "^15.1.2",
     "electron-is-dev": "^2.0.0",
     "lcu-connector": "^2.1.3",
     "typescript": "^4.4.3",
     "wait-on": "^6.0.0"
+  },
+  "build": {
+    "productName": "LOLGO",
+    "appId": "com.lolgo.electron",
+    "asar": true,
+    "mac": {
+      "target": [
+        "default"
+      ],
+      "icon": "build/icons/icon.icns"
+    },
+    "dmg": {
+      "title": "LOLGO",
+      "icon": "build/icons/icon.icns"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "build/icons/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": false,
+      "createDesktopShortcut": true,
+      "perMachine": true,
+      "language": 1042,
+      "installerIcon": "build/icons/icon.ico",
+      "shortcutName": "LOLGO",
+      "artifactName": "LOLGO_install_${version}.${ext}",
+      "uninstallDisplayName": "LOLGO"
+    },
+    "directories": {
+      "buildResources": "./build/",
+      "output": "../dist/"
+    }
   }
 }

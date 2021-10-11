@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "concurrently 'npm run start:nobrowser --prefix renderer' 'npm run start:wait --prefix main'",
-    "start:web": "export ELECTRON_IS_DEV=0 && npm run start --prefix main"
+    "start:web": "export ELECTRON_IS_DEV=0 && npm run start --prefix main",
+    "deploy:renderer": "npm run deploy --prefix renderer"
   },
   "repository": {
     "type": "git",

@@ -24,7 +24,10 @@
     "start:nobrowser": "export BROWSER=none && npm start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "npm run build && npm run deploy:only && npm run invalidate",
+    "deploy:only":"aws s3 sync ./build s3://lolgodesktopappbucket --profile=jsh-deploy",
+    "invalidate":"aws cloudfront create-invalidation --profile=jsh-deploy --distribution-id E2S1XPSX3V9YBM --paths \"/*\""
   },
   "eslintConfig": {
     "extends": [

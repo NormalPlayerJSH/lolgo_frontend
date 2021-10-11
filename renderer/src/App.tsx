@@ -27,7 +27,7 @@ const checker = (isLCUConnected: 'connected'|'not connected'|'not electron') => 
     return <Selector />;
   } else if(isLCUConnected==='not connected'){
     return <NeedLoL />;
-  } return <NeedLoL msg="이 페이지는 데스크탑 앱을 위한 페이지입니다" />
+  } return <NeedLoL msg="이곳은 데스크탑 앱에서 사용되는 페이지입니다" />
 };
 
 export default function App() {

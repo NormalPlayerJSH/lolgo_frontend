@@ -25,9 +25,9 @@
 }
 
 #bot {
-  width: 30%;
+  width: 100%;
   height: 12%;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -185,4 +185,10 @@
 
 .doing #selectText {
   color: white;
+}
+
+.adDiv {
+  width: 320px;
+  height: 50px;
+
 }

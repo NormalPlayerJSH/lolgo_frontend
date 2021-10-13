@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './Map.module.css';
 import mapImg from '../../Meta/map.png';
 import {
@@ -25,6 +25,19 @@ function Map(props:{
   beforeKillData: FramesData<EachKillData[]>
   close: () => void
 }) {
+  useEffect(() => {
+    (document.getElementById('historyAd') as Element).innerHTML=`
+    <ins class="kakao_ad_area" style="display:none;"
+ data-ad-unit    = "DAN-M8VdDg2HPQkV7ase"
+ data-ad-width   = "320"
+ data-ad-height  = "50"></ins>
+    `;
+    let scr = document.createElement('script');
+    scr.type='text/javascript';
+    scr.async=true;
+    scr.src="//t1.daumcdn.net/kas/static/ba.min.js";
+    (document.getElementById('historyAd') as Element).appendChild(scr)
+  }, [])
   const {
     data, frame, beforeKillData, close,
   } = props;
@@ -82,6 +95,8 @@ function Map(props:{
     <div className={styles.fullDiv}>
       <div className={styles.closeDiv} onClick={close}>
         <div>돌아가기</div>
+      </div>
+      <div className={styles.historyAd} id="historyAd">
       </div>
       <div className={`${styles.squareDiv} ${frame === -1 ? styles.allDot : ''}`} style={{ width: `${squareLength}rem`, height: `${squareLength}rem` }}>
         <img src={mapImg} alt="" className={styles.mapImg} />

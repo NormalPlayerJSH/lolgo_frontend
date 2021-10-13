@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/jsx-props-no-spreading */
-import React from 'react';
+import React, { useEffect } from 'react';
 import ChampPick from './ChampPick';
 import { getChampionImage } from '../../Meta/DataDragon';
 import { ChampSelectProps } from '../../types/props';
@@ -39,6 +39,25 @@ const getRecommendsComp = (
 ));
 
 export default function ChampSelectDesign(props: ChampSelectProps) {
+  useEffect(() => {
+    (document.getElementById('pickAdLeft') as Element).innerHTML=`
+    <ins class="kakao_ad_area" style="display:none;"
+ data-ad-unit    = "DAN-wUChomN9xqHLbOhJ"
+ data-ad-width   = "320"
+ data-ad-height  = "50"></ins>
+    `;
+    (document.getElementById('pickAdRight') as Element).innerHTML=`
+    <ins class="kakao_ad_area" style="display:none;"
+ data-ad-unit    = "DAN-0sbxMZmHtTXxoQKZ"
+ data-ad-width   = "320"
+ data-ad-height  = "50"></ins>
+    `;
+    let scr = document.createElement('script');
+    scr.type='text/javascript';
+    scr.async=true;
+    scr.src="//t1.daumcdn.net/kas/static/ba.min.js";
+    (document.getElementById('pickAdLeft') as Element).appendChild(scr)
+  }, [])
   const {
     ChampRecommendInfo,
     BanPickPlayerInfo,
@@ -116,6 +135,7 @@ export default function ChampSelectDesign(props: ChampSelectProps) {
           </div>
         </div>
         <div id={styles.bot}>
+          <div id="pickAdLeft" className={styles.adDiv}></div>
           <div id={styles.selectImgDiv}>
             <img
               src={getChampionImage(Me.championId)}
@@ -126,6 +146,7 @@ export default function ChampSelectDesign(props: ChampSelectProps) {
           <div id={styles.selectBtn} onClick={LockInOnClick}>
             <div id={styles.selectText}>선택 완료</div>
           </div>
+          <div id="pickAdRight" className={styles.adDiv}></div>
         </div>
       </div>
     </div>

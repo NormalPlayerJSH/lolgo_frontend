@@ -4,6 +4,9 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  overflow: visible;
+  flex-wrap: nowrap;
+  row-gap: 10rem;
 }
 
 .closeDiv {
@@ -20,6 +23,7 @@
 
 .squareDiv {
   position: relative;
+  flex-shrink: 0;
 }
 
 .mapImg {
@@ -53,4 +57,11 @@
   z-index: 5;
   border: solid 1rem;
   border-color: white;
+}
+
+.historyAd {
+  width: 322px;
+  height: 52px;
+  justify-content: center;
+  align-items: center;
 }

@@ -23,6 +23,7 @@ const checker = (isLCUConnected: 'connected'|'not connected'|'not electron') => 
   // eslint-disable-next-line react/jsx-props-no-spreading
   // return <History gameId={5463096178} close={() => {}} />;
   // return <ChampSelectDesign {... {...DummyData}} />
+  // return <InGame />
   if (isLCUConnected==='connected') {
     return <Selector />;
   } else if(isLCUConnected==='not connected'){

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import HistoryEach from './HistoryEach';
 import { MainProps, MatchInfoI } from '../../types/props';
 import { Rank } from '../../types/enum';
@@ -6,6 +6,19 @@ import { getProfileIcon } from '../../Meta/DataDragon';
 import styles from './MainDesign.module.css';
 
 export default function MainDesign(props:MainProps) {
+  useEffect(() => {
+    (document.getElementById('mainAd') as Element).innerHTML=`
+    <ins class="kakao_ad_area" style="display:none;"
+ data-ad-unit    = "DAN-qU8CTiIWPiiLnM7f"
+ data-ad-width   = "250"
+ data-ad-height  = "250"></ins>
+    `;
+    let scr = document.createElement('script');
+    scr.type='text/javascript';
+    scr.async=true;
+    scr.src="//t1.daumcdn.net/kas/static/ba.min.js";
+    (document.getElementById('mainAd') as Element).appendChild(scr)
+  }, [])
   const {
     setHistoryId, userInfo, profileIconId, matchInfo,
     totalKill, totalDeath, totalAssist, totalWin, totalLose,
@@ -58,20 +71,25 @@ export default function MainDesign(props:MainProps) {
               )
             }
           </div>
-          <div id={styles.mainHistoryTotalDiv}>
-            <div id={styles.totalInner}>
-              <div id={styles.kda}>
-                <div className={styles.totalName}>평점</div>
-                <div id={styles.kdaData} className={styles.totalData}>{getKDA()}</div>
-                <div className={styles.totalExplain}>{getKDAExplain()}</div>
-              </div>
-              <div id={styles.rate}>
-                <div className={styles.totalName}>승률</div>
-                <div id={styles.rateData} className={styles.totalData}>{getRate()}</div>
-                <div className={styles.totalExplain}>{getRateExplain()}</div>
+          <div className={styles.mainRightWrapper}>
+            <div id={styles.mainHistoryTotalDiv}>
+              <div id={styles.totalInner}>
+                <div id={styles.kda}>
+                  <div className={styles.totalName}>평점</div>
+                  <div id={styles.kdaData} className={styles.totalData}>{getKDA()}</div>
+                  <div className={styles.totalExplain}>{getKDAExplain()}</div>
+                </div>
+                <div id={styles.rate}>
+                  <div className={styles.totalName}>승률</div>
+                  <div id={styles.rateData} className={styles.totalData}>{getRate()}</div>
+                  <div className={styles.totalExplain}>{getRateExplain()}</div>
+                </div>
               </div>
             </div>
+            <div className={styles.mainAdDiv} id="mainAd">
+            </div>
           </div>
+
         </div>
       </div>
     </div>

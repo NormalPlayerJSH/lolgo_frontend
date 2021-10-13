@@ -54,11 +54,25 @@
   flex-direction: column;
 }
 
-#mainHistoryTotalDiv {
+.mainRightWrapper {
   width: 33%;
+  height: auto;
+  align-items: center;
+  flex-direction: column;
+}
+
+#mainHistoryTotalDiv {
+  width: 100%;
   height: 250rem;
   background: #191c20;
   align-items: center;
+}
+
+.mainAdDiv {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20rem;
 }
 
 #totalInner {

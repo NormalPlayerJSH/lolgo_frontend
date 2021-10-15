@@ -1,24 +1,26 @@
 {
   "name": "LOLGO",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "tsc index.ts && electron .",
     "start:wait": "wait-on http://localhost:3000 && npm run start",
-    "build":"npm run build:macarm && npm run build:macintel && npm run build:win",
-    "build:macarm": "electron-builder --mac --arm64",
-    "build:macintel": "electron-builder --mac --x64",
-    "build:win": "electron-builder --win --ia32"
+    "build": "electron-builder build -mw",
+    "deploy:prepare": "export PACKAGE_VERSION=`node -p \"require('./package.json').version\"`; echo $PACKAGE_VERSION; rm -rf ../dist/cdn; mkdir -p ../dist/cdn/desktop/win; mkdir -p ../dist/cdn/desktop/mac; mv ../dist/LOLGO_install_$PACKAGE_VERSION.exe ../dist/cdn/desktop/win; mv ../dist/LOLGO-$PACKAGE_VERSION-universal.dmg ../dist/cdn/desktop/mac; echo \"{\\\"version\\\": \\\"$PACKAGE_VERSION\\\"}\" > ../dist/cdn/desktop/version.json",
+    "deploy:only":"aws s3 sync ../dist/cdn s3://lolgocdnbucket --profile=jsh-deploy",
+    "invalidate":"aws cloudfront create-invalidation --profile=jsh-deploy --distribution-id E25XGJYTGMK1W6 --paths \"/*\"",
+    "deploy":"npm run build && npm run deploy:prepare && npm run deploy:only && npm run invalidate"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@electron/universal": "^1.1.0",
     "@types/electron": "^1.6.10",
-    "electron-builder": "^22.13.1",
-    "electron": "^15.1.2"
+    "electron": "^15.1.2",
+    "electron-builder": "^22.13.1"
   },
   "dependencies": {
     "cross-env": "^7.0.3",
@@ -32,9 +34,10 @@
     "appId": "com.lolgo.electron",
     "asar": true,
     "mac": {
-      "target": [
-        "default"
-      ],
+      "target": {
+        "target": "dmg",
+        "arch": "universal"
+      },
       "icon": "build/icons/icon.icns"
     },
     "dmg": {
@@ -42,9 +45,10 @@
       "icon": "build/icons/icon.icns"
     },
     "win": {
-      "target": [
-        "nsis"
-      ],
+      "target": {
+        "target": "nsis",
+        "arch": "ia32"
+      },
       "icon": "build/icons/icon.ico"
     },
     "nsis": {

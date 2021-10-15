@@ -140,7 +140,7 @@ export default function ChampSelect(props:{UserInfo:UserInfoI}) {
     if (ChampRequestInfo) {
       console.log(ChampRequestInfo);
       (async () => {
-        const { data } = await axios.post<any,any>('http://api.lolgo.gg/champrequest', ChampRequestInfo);
+        const { data } = await axios.post<any,any>('https://api.lolgo.gg/champrequest', ChampRequestInfo);
         console.log(data);
         setChampRecommendInfo(data);
       })();

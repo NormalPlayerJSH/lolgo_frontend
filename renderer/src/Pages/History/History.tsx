@@ -16,9 +16,7 @@ export default function History(props: { gameId: number; close: () => void }) {
   const [Selected, setSelected] = useState<number>(-1);
   useEffect(() => {
     (async () => {
-      const res = await axios.post<any>('http://api.lolgo.gg/analyrequest', {
-        matchId: gameId,
-      });
+      const res = await axios.get<any>(`https://api.lolgo.gg/analyrequest/${gameId}`);
       const data: AnalyInterface = await res.data;
       const beforeKillData:FramesData<EachKillData[]> = {};
       beforeKillData[-1] = [];

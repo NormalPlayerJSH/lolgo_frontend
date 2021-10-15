@@ -28,7 +28,8 @@ function createMainWindow() {
             contextIsolation: false,
             webSecurity: false
         },
-        frame: false
+        frame: false,
+        resizable: false
     });
     // 2021.03.28 수정
     // 실제로 배포된 어플리케이션에서는 빌드된 index.html 파일을 서빙합니다.

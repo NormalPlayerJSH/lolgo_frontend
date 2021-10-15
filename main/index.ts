@@ -38,7 +38,8 @@ function createMainWindow(): void {
       contextIsolation: false,
       webSecurity: false
     },
-    frame: false
+    frame: false,
+    resizable: false
   });
 
   // 2021.03.28 수정

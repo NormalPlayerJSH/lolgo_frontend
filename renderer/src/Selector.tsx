@@ -56,8 +56,8 @@ export default function Selector() {
   switch (Phase) {
     case GameFlow.ChampSelect:
       return <ChampSelect {...{ UserInfo: UserInfo! }} />;
-    // case GameFlow.InProgress:
-    //   return <InGame />;
+    case GameFlow.InProgress:
+      return <InGame />;
     case GameFlow.WaitingForStats:
     case GameFlow.PreEndOfGame:
     default:

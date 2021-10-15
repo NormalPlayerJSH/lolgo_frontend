@@ -38,6 +38,7 @@ function createMainWindow(): void {
       contextIsolation: false,
       webSecurity: false
     },
+    frame: false
   });
 
   // 2021.03.28 수정
@@ -79,6 +80,14 @@ ipcMain.on(LCUEvents.NeedLCU, (evt) => {
   console.log('needlcu');
   if (isLCUConnected) evt.sender.send(LCUEvents.LCUConnected, LCUData);
 });
+
+ipcMain.on(LCUEvents.WindowClose, (evt)=>{
+  mainWindow.close();
+})
+
+ipcMain.on(LCUEvents.WindowMinimize, (evt)=>{
+  mainWindow.minimize();
+})
 
 connector.on('connect', (data:any) => {
   console.log(data);

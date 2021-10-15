@@ -15,7 +15,7 @@ import History from './Pages/History/History';
 
 declare global {
   interface Window {
-    require: (name: string) => {ipcRenderer:IpcRenderer};
+    require: (name: string) => {ipcRenderer:IpcRenderer, remote:any};
   }
 }
 

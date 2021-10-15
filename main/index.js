@@ -27,7 +27,8 @@ function createMainWindow() {
             nodeIntegration: true,
             contextIsolation: false,
             webSecurity: false
-        }
+        },
+        frame: false
     });
     // 2021.03.28 수정
     // 실제로 배포된 어플리케이션에서는 빌드된 index.html 파일을 서빙합니다.
@@ -61,6 +62,12 @@ electron_1.ipcMain.on(enum_1.LCUEvents.NeedLCU, function (evt) {
     console.log('needlcu');
     if (isLCUConnected)
         evt.sender.send(enum_1.LCUEvents.LCUConnected, LCUData);
+});
+electron_1.ipcMain.on(enum_1.LCUEvents.WindowClose, function (evt) {
+    mainWindow.close();
+});
+electron_1.ipcMain.on(enum_1.LCUEvents.WindowMinimize, function (evt) {
+    mainWindow.minimize();
 });
 connector.on('connect', function (data) {
     console.log(data);

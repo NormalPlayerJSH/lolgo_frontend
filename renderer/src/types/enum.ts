@@ -2,6 +2,8 @@ export enum LCUEvents{
   LCUConnected='LCUConnected',
   LCUClosed='LCUClosed',
   NeedLCU='NeedLCU',
+  WindowClose='WindowClose',
+  WindowMinimize='WindowMinimize'
 }
 
 export enum GameFlow{

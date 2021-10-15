@@ -6,6 +6,8 @@ var LCUEvents;
     LCUEvents["LCUConnected"] = "LCUConnected";
     LCUEvents["LCUClosed"] = "LCUClosed";
     LCUEvents["NeedLCU"] = "NeedLCU";
+    LCUEvents["WindowClose"] = "WindowClose";
+    LCUEvents["WindowMinimize"] = "WindowMinimize";
 })(LCUEvents = exports.LCUEvents || (exports.LCUEvents = {}));
 var GameFlow;
 (function (GameFlow) {

@@ -106,7 +106,7 @@ export default function ChampSelectDesign(props: ChampSelectProps) {
         <div id={styles.mid}>
           <div id={styles.ourPickDiv} className={styles.pickDiv}>
             {myTeamPick.map((oneInfo) => (
-              <ChampPick {...oneInfo} isAlly />
+              <ChampPick {...oneInfo} />
             ))}
           </div>
           <div id={styles.recommend}>
@@ -130,7 +130,7 @@ export default function ChampSelectDesign(props: ChampSelectProps) {
           </div>
           <div id={styles.theirPickDiv} className={styles.pickDiv}>
             {theirTeamPick.map((oneInfo, idx) => (
-              <ChampPick {...oneInfo} isAlly={false} index={idx} />
+              <ChampPick {...oneInfo} index={idx} />
             ))}
           </div>
         </div>

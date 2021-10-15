@@ -4,14 +4,14 @@ import axios from 'axios';
 import useSWR from 'swr';
 import {
   UserInfoI, ChampSelectPlayerInfoI, BanPickInfoI, PickInfoI,
-  ChampRequestInfoI, ChampRecommendInfoI, BanPickPlayerInfoI,
+  ChampRequestInfoI, ChampRecommendInfoI, BanPickPlayerInfoI, ChampSelectOurTeamUserInfoI,
 } from '../../types/props';
 import { Rank } from '../../types/enum';
 import ChampSelectDesign from './ChampSelectDesign';
 import Loading from '../Loading/Loading';
 
 const parseChampData = (data:any, myCellId:number) => {
-  const { actions, timer } = data;
+  const { actions, timer, myTeam } = data;
   const { internalNowInEpochMs, adjustedTimeLeftInPhase } = timer;
   const newBanPickInfo:BanPickInfoI = {
     ourBan: [],
@@ -22,8 +22,13 @@ const parseChampData = (data:any, myCellId:number) => {
     bans: [],
     ally: [],
     enemy: [],
-    position: 'MIDDLE',
+    position: '',
   };
+  myTeam.map((oneMember: any) => {
+    if(oneMember.cellId === myCellId){
+      newChampRequestInfo.position = oneMember.assignedPosition.toUpperCase()
+    }
+  })
   newBanPickInfo.endTime = internalNowInEpochMs + adjustedTimeLeftInPhase;
   for (const littleActions of actions) {
     for (const {
@@ -81,6 +86,7 @@ export default function ChampSelect(props:{UserInfo:UserInfoI}) {
           const { data } = await axios.get<any>('/lol-champ-select/v1/session');
           const { myTeam, theirTeam } = data;
           const infoMyTeam = myTeam.map((teamData:any) => teamData.cellId as number);
+          const positionMyTeam = myTeam.map((teamData:any) => (teamData.assignedPosition as string).toUpperCase())
           const infoTheirTeam = theirTeam.map((teamData:any) => teamData.cellId as number);
           const myTeamSummonerIds = myTeam.map((teamData:any) => teamData.summonerId as number);
           // eslint-disable-next-line no-await-in-loop
@@ -88,7 +94,7 @@ export default function ChampSelect(props:{UserInfo:UserInfoI}) {
           const myTeamPUUID = myTeamInfoData.map((userData:any) => userData.puuid);
           // eslint-disable-next-line no-await-in-loop
           const { data: myTeamRankData } = await axios.get<any>(`/lol-ranked/v1/ranked-stats/?puuids=${JSON.stringify(myTeamPUUID)}`);
-          const myTeamInfo:{[x:number]:UserInfoI} = {};
+          const myTeamInfo:{[x:number]:ChampSelectOurTeamUserInfoI} = {};
           myTeamInfoData.map((userData:any, idx:number) => {
             const {
               accountId, displayName: name, puuid, summonerId,
@@ -99,8 +105,9 @@ export default function ChampSelect(props:{UserInfo:UserInfoI}) {
             const division = {
               I: 1, II: 2, III: 3, IV: 4, NA: 0,
             }[rankData.division as 'I'|'II'|'III'|'IV'|'NA'] as 0|1|2|3|4;
+            const position = positionMyTeam[idx];
             const user = {
-              accountId, name, puuid, summonerId, division, tier,
+              accountId, name, puuid, summonerId, division, tier, position
             };
             if (summonerId === UserInfo.summonerId) myCellId = infoMyTeam[idx];
             myTeamInfo[infoMyTeam[idx]] = user;

@@ -23,6 +23,7 @@ export const DummyData:ChampSelectProps = {
             summonerId: 0,
             accountId: 0,
             puuid: '',
+            position: 'TOP'
           },
           isMe: true,
         },
@@ -43,6 +44,7 @@ export const DummyData:ChampSelectProps = {
             summonerId: 0,
             accountId: 0,
             puuid: '',
+            position: ''
           },
           isMe: false,
         },
@@ -63,6 +65,7 @@ export const DummyData:ChampSelectProps = {
             summonerId: 0,
             accountId: 0,
             puuid: '',
+            position: 'MID'
           },
           isMe: false,
         },
@@ -83,6 +86,7 @@ export const DummyData:ChampSelectProps = {
             summonerId: 0,
             accountId: 0,
             puuid: '',
+            position: 'BOTTOM'
           },
           isMe: false,
         },
@@ -103,6 +107,7 @@ export const DummyData:ChampSelectProps = {
             summonerId: 0,
             accountId: 0,
             puuid: '',
+            position: 'UTILITY'
           },
           isMe: false,
         },

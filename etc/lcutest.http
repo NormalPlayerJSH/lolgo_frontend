@@ -2,16 +2,22 @@
 GET http://ddragon.leagueoflegends.com/cdn/11.15.1/data/ko_KR/summoner.json HTTP/1.1
 
 ### asdf
-GET https://riot:afHIUPzxR1bTDjdlwg8_fg@127.0.0.1:58394/lol-champ-select/v1/session HTTP/1.1
+GET https://riot:s0sm93xHU--0O2q94zQZkg@127.0.0.1:65243/lol-champ-select/v1/session HTTP/1.1
 
 ### asdf
-GET https://riot:VFZxcBkpIQudHgHN3aBxXg@127.0.0.1:65147/lol-match-history/v1/games/5491574561 HTTP/1.1
+GET https://riot:s0sm93xHU--0O2q94zQZkg@127.0.0.1:65243/lol-lobby/v2/lobby HTTP/1.1
+
+### asdf
+GET https://riot:s0sm93xHU--0O2q94zQZkg@127.0.0.1:65243/lol-match-history/v1/games/5511078130 HTTP/1.1
+
+### asdf
+GET https://riot:s0sm93xHU--0O2q94zQZkg@127.0.0.1:65243/lol-game-queues/v1/queues HTTP/1.1
 
 ### asdf
 GET https://riot:VFZxcBkpIQudHgHN3aBxXg@127.0.0.1:65147/lol-match-history/v1/game-timelines/5491574561 HTTP/1.1
 
 ### asdf
-GET https://riot:afHIUPzxR1bTDjdlwg8_fg@127.0.0.1:58394/lol-match-history/v1/products/lol/current-summoner/matches HTTP/1.1
+GET https://riot:x4PnIi2rR3DnlMnRVPUpAA@127.0.0.1:65254/lol-match-history/v1/products/lol/current-summoner/matches HTTP/1.1
 
 ###
 GET https://op.gg/summoner/matches/ajax/detail/teamAnalysis/gameId=5366765964&summonerId=23614482&moreLoad=1 HTTP/1.1
@@ -20,7 +26,7 @@ GET https://op.gg/summoner/matches/ajax/detail/teamAnalysis/gameId=5366765964&su
 GET https://riot:1UZNG1b3YFmx55uS41vukQ@127.0.0.1:55292/lol-summoner/v1/summoners/23614482 HTTP/1.1
 
 ### asdf
-GET https://riot:wqMq5AupHFiFdMuLidDf0g@127.0.0.1:62371/lol-summoner/v1/current-summoner HTTP/1.1
+GET https://riot:x4PnIi2rR3DnlMnRVPUpAA@127.0.0.1:65254/lol-summoner/v1/current-summoner HTTP/1.1
 
 ### asdf
 GET https://riot:8acYbYW4PFPJ0Xr3T3l_AA@127.0.0.1:53201/swagger/v2/swagger.json HTTP/1.1
@@ -67,7 +73,7 @@ PATCH https://riot:1UZNG1b3YFmx55uS41vukQ@127.0.0.1:55292/lol-champ-select/v1/se
 }
 
 ### 현재 상태 보기
-GET https://riot:afHIUPzxR1bTDjdlwg8_fg@127.0.0.1:58394/lol-gameflow/v1/session HTTP/1.1
+GET https://riot:s0sm93xHU--0O2q94zQZkg@127.0.0.1:65243/lol-gameflow/v1/session HTTP/1.1
 
 ### 현재 상태 보기
 GET https://riot:afHIUPzxR1bTDjdlwg8_fg@127.0.0.1:58394/lol-gameflow/v1/gameflow-phase HTTP/1.1

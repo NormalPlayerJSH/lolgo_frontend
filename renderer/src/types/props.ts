@@ -11,11 +11,21 @@ export interface UserInfoI {
   division: 0 | 1 | 2 | 3 | 4;
 }
 
+export interface ChampSelectOurTeamUserInfoI {
+  name: string;
+  summonerId: number;
+  accountId: number;
+  puuid: string;
+  tier: Rank;
+  division: 0 | 1 | 2 | 3 | 4;
+  position: string;
+}
+
 export interface ChampSelectPlayerInfoI {
   myTeam: number[];
   theirTeam: number[];
   myTeamInfo: {
-    [x: number]: UserInfoI;
+    [x: number]: ChampSelectOurTeamUserInfoI;
   };
   myCellId: number;
 }
@@ -95,7 +105,7 @@ export interface BanPickPlayerInfoI {
     ban: number[],
     pick: {
       pickInfo: PickInfoI
-      playerInfo: UserInfoI
+      playerInfo: ChampSelectOurTeamUserInfoI
       isMe: boolean
     }[]
   },

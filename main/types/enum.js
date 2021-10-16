@@ -8,6 +8,8 @@ var LCUEvents;
     LCUEvents["NeedLCU"] = "NeedLCU";
     LCUEvents["WindowClose"] = "WindowClose";
     LCUEvents["WindowMinimize"] = "WindowMinimize";
+    LCUEvents["NeedVersion"] = "NeedVersion";
+    LCUEvents["AnswerVersion"] = "AnswerVersion";
 })(LCUEvents = exports.LCUEvents || (exports.LCUEvents = {}));
 var GameFlow;
 (function (GameFlow) {

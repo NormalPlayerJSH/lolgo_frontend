@@ -7,6 +7,8 @@ import { LCUEvents } from './types/enum';
 
 const LCUConnector = require('lcu-connector');
 
+const version = require('./package.json').version;
+
 const connector = new LCUConnector();
 
 app.commandLine.appendSwitch('ignore-certificate-errors', 'true');
@@ -88,6 +90,10 @@ ipcMain.on(LCUEvents.WindowClose, (evt)=>{
 
 ipcMain.on(LCUEvents.WindowMinimize, (evt)=>{
   mainWindow.minimize();
+})
+
+ipcMain.on(LCUEvents.NeedVersion, (evt)=>{
+  evt.sender.send(LCUEvents.AnswerVersion,{version})
 })
 
 connector.on('connect', (data:any) => {

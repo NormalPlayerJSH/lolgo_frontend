@@ -4,6 +4,7 @@ var electron_1 = require("electron");
 var isDev = require("electron-is-dev");
 var enum_1 = require("./types/enum");
 var LCUConnector = require('lcu-connector');
+var version = require('./package.json').version;
 var connector = new LCUConnector();
 electron_1.app.commandLine.appendSwitch('ignore-certificate-errors', 'true');
 electron_1.app.commandLine.appendSwitch('disable-features', 'OutOfBlinkCors');
@@ -69,6 +70,9 @@ electron_1.ipcMain.on(enum_1.LCUEvents.WindowClose, function (evt) {
 });
 electron_1.ipcMain.on(enum_1.LCUEvents.WindowMinimize, function (evt) {
     mainWindow.minimize();
+});
+electron_1.ipcMain.on(enum_1.LCUEvents.NeedVersion, function (evt) {
+    evt.sender.send(enum_1.LCUEvents.AnswerVersion, { version: version });
 });
 connector.on('connect', function (data) {
     console.log(data);

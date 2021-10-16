@@ -1,13 +1,35 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './Header.module.css';
 import { logoInline } from '../../Meta/logo';
 import { LCUEvents } from '../../types/enum';
+import axios from 'axios';
 
 export default function Header() {
+  const [HaveUpdate, setHaveUpdate] = useState(false);
+  const [MainVersion, setMainVersion] = useState('');
+  const [OnlineVersion, setOnlineVersion] = useState('');
+  useEffect(() => {
+    try {
+      window.require('electron').ipcRenderer.send(LCUEvents.NeedVersion);
+      window.require('electron').ipcRenderer.on(LCUEvents.AnswerVersion,(evt,data)=>{
+        setMainVersion(data.version);
+      })
+      axios.get<any>('https://cdn.lolgo.gg/desktop/version.json').then(res=>{
+        setOnlineVersion(res.data.version);
+      })
+    } catch {}
+  }, [])
+  useEffect(() => {
+    if(MainVersion!=='' && OnlineVersion !=='' && MainVersion !== OnlineVersion) setHaveUpdate(true);
+  }, [MainVersion,OnlineVersion])
   return (
+    <>
     <div id={styles.headerDiv}>
       <div id={styles.headerInner}>
         <img src={logoInline} alt="" id={styles.headerLogo} />
+      </div>
+      <div className={`${styles.updateDiv} ${HaveUpdate?styles.show:''}`} onClick={()=>{window.require('electron').shell.openExternal('https://lolgo.gg/download')}}>
+        업데이트가 있습니다
       </div>
       <div className={styles.controllerDiv}>
         <div className={styles.controllerButton} onClick={()=>{window.location.reload()}}>
@@ -22,5 +44,6 @@ export default function Header() {
       </div>
 
     </div>
+    </>
   );
 }

@@ -1,13 +1,13 @@
 {
   "name": "LOLGO",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "tsc index.ts && electron .",
     "start:wait": "wait-on http://localhost:3000 && npm run start",
-    "build": "electron-builder build -mw",
+    "build": "export WIN_CSC_LINK=\"build/mycert.pfx\" && export WIN_CSC_KEY_PASSWORD=\"soma1216\" && electron-builder build -mw",
     "deploy:prepare": "export PACKAGE_VERSION=`node -p \"require('./package.json').version\"`; echo $PACKAGE_VERSION; rm -rf ../dist/cdn; mkdir -p ../dist/cdn/desktop/win; mkdir -p ../dist/cdn/desktop/mac; mv ../dist/LOLGO_install_$PACKAGE_VERSION.exe ../dist/cdn/desktop/win; mv ../dist/LOLGO-$PACKAGE_VERSION-universal.dmg ../dist/cdn/desktop/mac; echo \"{\\\"version\\\": \\\"$PACKAGE_VERSION\\\"}\" > ../dist/cdn/desktop/version.json",
     "deploy:only":"aws s3 sync ../dist/cdn s3://lolgocdnbucket --profile=jsh-deploy",
     "invalidate":"aws cloudfront create-invalidation --profile=jsh-deploy --distribution-id E25XGJYTGMK1W6 --paths \"/*\"",

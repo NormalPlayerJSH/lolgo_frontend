@@ -38,11 +38,18 @@
   flex-direction: column;
 }
 
+.nicknameDiv {
+  height: 4%;
+  font-size: 20rem;
+  color: white;
+}
+
 .eachPlayerDiv {
   width: 100%;
-  height: 20%;
+  height: 16%;
   align-items: center;
   column-gap: 10rem;
+  border-bottom: solid 1px #888889;
 }
 
 .playerChampImg {

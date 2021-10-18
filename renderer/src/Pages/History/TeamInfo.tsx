@@ -34,12 +34,15 @@ function PlayerInfo(props: {
   championId: number
   kdaInfo: EachKdaData,
   gold: number
+  nickname: string
 }) {
   const {
-    itemData, championId, kdaInfo, gold,
+    itemData, championId, kdaInfo, gold, nickname
   } = props;
   const { normalList, trinketItem } = itemData;
   return (
+    <>
+    <div className={styles.nicknameDiv}>{nickname}</div>
     <div className={styles.eachPlayerDiv}>
       <div className={styles.playerChampImg}>
         <div className={styles.playerChampImgInner}>
@@ -72,6 +75,7 @@ function PlayerInfo(props: {
         </div>
       </div>
     </div>
+    </>
   );
 }
 
@@ -92,7 +96,7 @@ function TeamInfo(props: {
       <div className={styles.playerDiv}>
         {Object.keys(data.participantInfo).map((k) => {
           const key: number = k as unknown as number;
-          const { championId, teamId } = data.participantInfo[key as unknown as number];
+          const { championId, teamId, summonerName } = data.participantInfo[key as unknown as number];
           // console.log({ teamId, team });
           if (teamId === team) {
             return (
@@ -101,6 +105,7 @@ function TeamInfo(props: {
                 championId={championId}
                 kdaInfo={data.kdaData[frame][key]}
                 gold={data.goldData[frame][key]}
+                nickname={summonerName}
               />
             );
           }

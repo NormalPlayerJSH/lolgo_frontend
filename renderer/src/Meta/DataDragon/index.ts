@@ -8,7 +8,7 @@ import EmptyImage from '../empty.png';
 export const getProfileIcon = (profileIconId:number) => `http://ddragon.leagueoflegends.com/cdn/${currentVersion}/img/profileicon/${profileIconId}.png`;
 
 export const getChampionImage = (key:number) => {
-  if (ChampMeta[key].id && ChampMeta[key].id !== 'None') return `http://ddragon.leagueoflegends.com/cdn/${currentVersion}/img/champion/${ChampMeta[key].id}.png`;
+  if (ChampMeta[key] && ChampMeta[key].id && ChampMeta[key].id !== 'None') return `http://ddragon.leagueoflegends.com/cdn/${currentVersion}/img/champion/${ChampMeta[key].id}.png`;
   return EmptyImage;
 };
 

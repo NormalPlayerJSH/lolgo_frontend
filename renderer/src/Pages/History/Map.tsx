@@ -46,49 +46,53 @@ function Map(props:{
     data: EachKillData|EachEliteData|EachTowerData
     type:'before'|'now'|'object'
   }) {
-    const { data: d, type } = p;
-    const typeToClass = {
-      before: styles.dotBefore,
-      now: styles.dotNow,
-      object: styles.dotObject,
-    };
-    let halfLength = 0;
-    const { x, y } = d;
-    let bgColor = 'white';
-    let innerElement = <></>;
-    if ('victimId' in d) {
-      const team = data.participantInfo[d.killerId].teamId;
-      halfLength = halfDotLength;
-      bgColor = team === 100 ? blueColor : redColor;
-    } else if ('towerType' in d) {
-      halfLength = halfObjectLength;
-      bgColor = d.teamId === 200 ? blueColor : redColor;
-      innerElement = d.towerType === 'INHIBITOR_BUILDING' ? inhibitorIcon() : towerIcon();
-    } else {
-      halfLength = halfObjectLength;
-      const tId = data.participantInfo[d.killerId].teamId;
-      bgColor = tId === 100 ? blueColor : redColor;
-      if (d.monsterType === 'BARON_NASHOR') innerElement = baronIcon(true);
-      else if (d.monsterType === 'RIFTHERALD') innerElement = heraldIcon(true);
-      else innerElement = dragonIcon();
-    }
+    try {
+      const { data: d, type } = p;
+      const typeToClass = {
+        before: styles.dotBefore,
+        now: styles.dotNow,
+        object: styles.dotObject,
+      };
+      let halfLength = 0;
+      const { x, y } = d;
+      let bgColor = 'white';
+      let innerElement = <></>;
+      if ('victimId' in d) {
+        const team = data.participantInfo[d.killerId].teamId;
+        halfLength = halfDotLength;
+        bgColor = team === 100 ? blueColor : redColor;
+      } else if ('towerType' in d) {
+        halfLength = halfObjectLength;
+        bgColor = d.teamId === 200 ? blueColor : redColor;
+        innerElement = d.towerType === 'INHIBITOR_BUILDING' ? inhibitorIcon() : towerIcon();
+      } else {
+        halfLength = halfObjectLength;
+        const tId = data.participantInfo[d.killerId].teamId;
+        bgColor = tId === 100 ? blueColor : redColor;
+        if (d.monsterType === 'BARON_NASHOR') innerElement = baronIcon(true);
+        else if (d.monsterType === 'RIFTHERALD') innerElement = heraldIcon(true);
+        else innerElement = dragonIcon();
+      }
 
-    const left = (squareLength * (x / mapFullSize)) - halfLength;
-    const bottom = (squareLength * (y / mapFullSize)) - halfLength;
-    return (
-      <div
-        className={`${styles.dotOnMap} ${typeToClass[type]}`}
-        style={{
-          left: `${left}rem`,
-          bottom: `${bottom}rem`,
-          width: `${halfLength * 2}rem`,
-          height: `${halfLength * 2}rem`,
-          background: `${bgColor}`,
-        }}
-      >
-        {innerElement}
-      </div>
-    );
+      const left = (squareLength * (x / mapFullSize)) - halfLength;
+      const bottom = (squareLength * (y / mapFullSize)) - halfLength;
+      return (
+        <div
+          className={`${styles.dotOnMap} ${typeToClass[type]}`}
+          style={{
+            left: `${left}rem`,
+            bottom: `${bottom}rem`,
+            width: `${halfLength * 2}rem`,
+            height: `${halfLength * 2}rem`,
+            background: `${bgColor}`,
+          }}
+        >
+          {innerElement}
+        </div>
+      );
+    } catch {
+      return <></>
+    }
   }
 
   return (

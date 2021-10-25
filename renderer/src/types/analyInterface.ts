@@ -76,4 +76,5 @@ export interface AnalyInterface {
   itemData: FramesData<EachPlayersData<number[]>>;
   goldData: FramesData<EachPlayersData<number>>;
   eliteData: EachEliteData[];
+  levelData: FramesData<EachPlayersData<number>>;
 }

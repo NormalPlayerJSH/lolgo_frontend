@@ -8,15 +8,28 @@ LOLGO의 프론트엔드 부분 레포지토리입니다.
 
 ---
 
-## 주요 실행 사진
+## 구조
+- main - Electron 작동 소스
+- renderer - Electron 내에 띄워지는 React 웹 소스
+  - Amazon S3로 배포
 
-![](https://user-images.githubusercontent.com/37856995/128961795-d4628035-f1cc-4965-83b3-8cd58f1b909f.png)
+
+---
+
+## 주요 실행 사진
 
 ### 전적 확인
 
-![](https://user-images.githubusercontent.com/37856995/128961757-0892d774-5b77-46fe-b32e-3ae86c34dc24.png)
+![전적 확인](https://user-images.githubusercontent.com/37856995/139628032-30a20ba0-145c-4d42-bd98-f8fac5180491.png)
 
 ### 밴픽창 챔피언 추천
+
+![밴픽창 챔피언 추천](https://user-images.githubusercontent.com/37856995/139628039-b10acd78-1fc4-4471-8f53-b13e5cc1fe3a.png)
+
+### 게임 분석
+
+![게임 분석](https://user-images.githubusercontent.com/37856995/139628037-8c1939e3-2591-442c-8cb5-3f7ec1b6e238.png)
+
 
 ---
 
@@ -28,8 +41,6 @@ LOLGO의 프론트엔드 부분 레포지토리입니다.
   - [swr](https://github.com/vercel/swr)
   - [axios](https://github.com/axios/axios)
   - [react-loader-spiner](https://github.com/mhnpd/react-loader-spinner)
-- [Electron React Boilerplate](https://github.com/electron-react-boilerplate/electron-react-boilerplate)를 이용해 제작
-
 ---
 
 ## 실행 방법
@@ -37,6 +48,6 @@ LOLGO의 프론트엔드 부분 레포지토리입니다.
 ```
 git clone https://git.swmgit.org/swm-12/12_swm16/lolgo_frontend
 cd ./lolgo_frontend
-yarn
-yarn start
+npm install
+npm start
 ```

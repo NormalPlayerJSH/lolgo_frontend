@@ -1,0 +1,41 @@
+.line {
+    fill: none;
+    stroke: #d95b5b;
+    stroke-width: 3px;
+
+/* Stroke-dasharray property */
+    stroke-dasharray: 1004.8601684570312; 
+    stroke-dashoffset: 1004.8601684570312;
+    animation: move 2s ease-in infinite;     
+    animation-fill-mode: forwards;
+}
+
+.L {
+    animation: changeColor 2s linear infinite;     
+    animation-fill-mode: forwards;
+}
+
+@keyframes move {
+    60% {
+        stroke-dashoffset: 0;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes changeColor {
+    0% {
+        fill: white;
+    }
+
+    60% {
+        fill: #ebc242;
+    }
+    90% {
+        fill: #ebc242;
+    }
+    100% {
+        fill: white;
+    }
+}

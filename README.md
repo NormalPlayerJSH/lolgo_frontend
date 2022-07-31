@@ -1,5 +1,11 @@
 # LOLGO_Frontend
 
+
+### 이 레포지토리는 **2021년 [SW마에스트로](https://swmaestro.org/) 제12기 LOLGO팀** 활동 중 개발한 레포지토리입니다.
+### 관련 시연 영상은 [여기](https://www.youtube.com/watch?v=F1vVZymvK7w)에서 확인하실 수 있습니다.
+
+---
+
 ![롤고 배경](https://user-images.githubusercontent.com/37856995/128962448-39fc7809-0127-4d36-a232-be0b46e72185.png)
 
 리그 오브 레전드를 위한 챔피언 추천 프로그램, **LOLGO**
@@ -43,7 +49,8 @@ LOLGO의 프론트엔드 부분 레포지토리입니다.
   - [react-loader-spiner](https://github.com/mhnpd/react-loader-spinner)
 ---
 
-## 실행 방법
+## 실행 방법 (현재 작동 불가)
+### 현재 서버가 작동중이지 않아 사용할 수 없습니다.
 
 ```
 git clone https://git.swmgit.org/swm-12/12_swm16/lolgo_frontend
